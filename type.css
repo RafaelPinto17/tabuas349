@@ -263,3 +263,98 @@ footer {
     text-align: center;
   }
 }
+/* ============================
+   LAYOUT PREMIUM REFINADO
+   ============================ */
+
+/* Limitar largura das secções para ficar mais elegante */
+.secao, .secao-alt {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+/* Títulos mais premium */
+h2 {
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+  color: var(--cor-principal);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+
+/* Fotos centradas */
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Hero mais limpo e elegante */
+.hero {
+  background: url("img/tabua1.jpg") center/cover no-repeat;
+  min-height: 65vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--cor-branco);
+  padding: 40px 20px;
+}
+
+.hero-texto {
+  max-width: 700px;
+}
+
+/* Cartões mais equilibrados */
+.card {
+  background: var(--cor-branco);
+  width: 300px;
+  padding: 26px;
+  border-radius: var(--radius);
+  box-shadow: 0 0 18px var(--cor-sombra);
+  transition: var(--transicao);
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  border-radius: var(--radius);
+  margin-bottom: 18px;
+}
+
+/* Galeria mais premium */
+.galeria-img {
+  width: 300px;
+  border-radius: var(--radius);
+  box-shadow: 0 0 14px var(--cor-sombra);
+  transition: var(--transicao);
+  margin-bottom: 20px;
+}
+
+.galeria-img:hover {
+  transform: scale(1.04);
+}
+
+/* Secção da fundadora mais equilibrada */
+.fundadora-container {
+  max-width: 900px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.fundadora-texto {
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+/* Espaçamento premium entre secções */
+.secao + .secao,
+.secao-alt + .secao,
+.secao + .secao-alt {
+  margin-top: 40px;
+}
