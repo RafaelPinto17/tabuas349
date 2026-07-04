@@ -28,6 +28,10 @@ body {
   color: var(--cor-texto);
   line-height: 1.6;
 }
+/* Centrar todo o texto do site */
+body, h1, h2, h3, h4, p, span, a, li, div {
+  text-align: center;
+}
 
 /* ============================
    HEADER MODERNO
