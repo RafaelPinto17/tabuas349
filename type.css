@@ -1,3 +1,10 @@
+:root {
+  --cor-principal: #8b0000;
+  --cor-secundaria: #f7f7f7;
+  --cor-texto: #333;
+  --cor-branco: #fff;
+  --cor-sombra: rgba(0,0,0,0.12);
+}
 /* ============================
    VARIÁVEIS DE TEMA
    ============================ */
