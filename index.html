@@ -1,293 +1,1110 @@
-
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Óptica Piscar D'Olho | Lousada</title>
-  <meta name="description" content="Óptica Piscar D'Olho em Lousada. Óculos graduados, óculos de sol, lentes de contacto e cuidados de visão.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Óptica Piscar D’Olho | Lousada</title>
+  <meta name="description"
+        content="Óptica Piscar D’Olho em Lousada. Óculos graduados, óculos de sol, lentes de contacto e consultas com optometrista.">
+  <meta name="theme-color" content="#20362d">
+
   <style>
+    :root {
+      --verde: #20362d;
+      --escuro: #14281f;
+      --creme: #faf8f3;
+      --bege: #e8b394;
+      --texto: #26352e;
+      --cinza: #5c6861;
+      --linha: #dedfd6;
+    }
+
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      color: #26352e;
-      background: #faf8f3;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--creme);
+      color: var(--texto);
+      line-height: 1.7;
     }
-    header {
-      background: #20362d;
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid #b46b38;
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(1180px, 90%);
+      margin: auto;
+    }
+
+    .topo {
+      background: var(--escuro);
       color: white;
-      padding: 22px 7%;
+      padding: 9px 0;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--creme);
+      border-bottom: 1px solid var(--linha);
+    }
+
+    .cabecalho {
+      min-height: 85px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
+      gap: 20px;
     }
-    header h2 { margin: 0; }
-    nav { display: flex; flex-wrap: wrap; gap: 18px; }
-    nav a { color: white; text-decoration: none; }
-    nav a:hover { color: #e9b99b; }
-    .hero {
-      min-height: 480px;
+
+    .logo { text-decoration: none; }
+
+    .logo strong {
+      display: block;
+      font-family: Georgia, serif;
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .logo small {
+      font-size: 10px;
+      letter-spacing: 3px;
+    }
+
+    nav {
       display: flex;
       align-items: center;
-      padding: 65px 8%;
-      color: white;
-      background:
-        linear-gradient(90deg, #20362de8, #20362d55),
-        url("https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1600&q=85")
-        center/cover;
+      gap: 22px;
     }
-    .hero div { max-width: 570px; }
-    .hero h1 {
-      font-family: Georgia, serif;
-      font-size: clamp(38px, 6vw, 65px);
-      margin: 0 0 20px;
-    }
-    .hero p { font-size: 18px; line-height: 1.7; }
-    .button {
-      display: inline-block;
-      background: #e8b394;
-      color: #20362d;
-      padding: 14px 22px;
-      margin-top: 12px;
-      border-radius: 4px;
+
+    nav a {
       text-decoration: none;
-      font-weight: bold;
-    }
-    section { padding: 65px 7%; }
-    .intro { text-align: center; max-width: 850px; margin: auto; }
-    h2 { font-family: Georgia, serif; }
-    .intro p, .service p { line-height: 1.8; color: #657067; }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-      margin-top: 30px;
-    }
-    .product {
-      background: white;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 18px #26352e12;
-    }
-    .product img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-      display: block;
-    }
-    .product-info { padding: 18px; }
-    .product-info h3 { margin: 0 0 8px; }
-    .product-info p { color: #69756c; font-size: 14px; }
-    .price { font-weight: bold; color: #b66d4b; }
-    .brands { background: #e7ece3; text-align: center; }
-    .brand-list {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 25px;
-    }
-    .brand-list span {
-      background: white;
-      padding: 14px 20px;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-      margin-top: 25px;
-    }
-    .service {
-      background: white;
-      padding: 24px;
-      border-radius: 8px;
-    }
-    .contact {
-      background: #20362d;
-      color: white;
-    }
-    .contact p { line-height: 1.8; }
-    .contact a:not(.button) { color: #f0c4a8; }
-    footer {
-      background: #15251e;
-      color: white;
-      text-align: center;
-      padding: 25px;
       font-size: 14px;
     }
-    @media (max-width: 600px) {
-      header { justify-content: center; text-align: center; }
-      nav { justify-content: center; }
-      .hero { padding: 55px 7%; }
+
+    nav a:hover {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    .menu {
+      display: none;
+      padding: 8px 12px;
+      border: 1px solid var(--linha);
+      background: white;
+      border-radius: 4px;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: normal;
+      line-height: 1.15;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 76px);
+      margin: 0 0 24px;
+    }
+
+    h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      margin: 0 0 20px;
+    }
+
+    h3 {
+      font-size: 25px;
+      margin: 0 0 14px;
+    }
+
+    p { margin: 0 0 18px; }
+
+    .etiqueta {
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      margin-bottom: 18px;
+    }
+
+    .botao {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 22px;
+      background: var(--verde);
+      color: white;
+      border: 1px solid var(--verde);
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .botao:hover { background: var(--escuro); }
+
+    .botao.bege {
+      background: var(--bege);
+      border-color: var(--bege);
+      color: var(--escuro);
+    }
+
+    .botao.contorno {
+      background: transparent;
+      color: var(--verde);
+    }
+
+    .botao.contorno:hover { background: #e7ece3; }
+
+    .acoes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--verde);
+      color: white;
+    }
+
+    .hero-texto {
+      padding: 80px 10%;
+      align-self: center;
+    }
+
+    .hero-texto > p:not(.etiqueta) {
+      color: #e0e7de;
+      max-width: 480px;
+      font-size: 17px;
+    }
+
+    .hero-imagem {
+      position: relative;
+      min-height: 600px;
+      background: #bfc4b8;
+    }
+
+    .hero-imagem img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .legenda {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      background: #14281fcc;
+      color: white;
+      font-size: 11px;
+      padding: 5px 10px;
+      border-radius: 3px;
+    }
+
+    .faixa {
+      background: #e7ece3;
+      padding: 20px 0;
+    }
+
+    .faixa .container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 14px;
+    }
+
+    section { padding: 80px 0; }
+    .cinza { color: var(--cinza); }
+    .introducao { max-width: 720px; margin-bottom: 35px; }
+
+    .sobre {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 65px;
+      align-items: start;
+    }
+
+    .catalogo { background: #f0ede5; }
+
+    .controlos {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .filtros {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filtro {
+      padding: 9px 16px;
+      border: 1px solid #bcc5ba;
+      border-radius: 30px;
+      background: transparent;
+      color: var(--verde);
+    }
+
+    .filtro[aria-pressed="true"] {
+      background: var(--verde);
+      color: white;
+      border-color: var(--verde);
+    }
+
+    .pesquisa {
+      width: 280px;
+      max-width: 100%;
+      border: 1px solid #bcc5ba;
+      border-radius: 4px;
+      padding: 10px 14px;
+      background: var(--creme);
+    }
+
+    .produtos {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .produto {
+      overflow: hidden;
+      background: white;
+      border: 1px solid var(--linha);
+      border-radius: 6px;
+    }
+
+    .produto img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      background: #e7ece3;
+    }
+
+    .produto-info { padding: 25px; }
+
+    .produto-info small {
+      display: block;
+      color: var(--cinza);
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .produto-info p { color: var(--cinza); font-size: 14px; }
+
+    .produto-info a {
+      font-size: 14px;
+      font-weight: bold;
+      text-underline-offset: 5px;
+    }
+
+    .nota {
+      color: var(--cinza);
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    .marcas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .marcas span {
+      padding: 14px 22px;
+      border: 1px solid var(--linha);
+      background: white;
+      font-family: Georgia, serif;
+      font-size: 19px;
+    }
+
+    .servicos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .servico {
+      padding: 32px;
+      background: white;
+      border: 1px solid var(--linha);
+      border-left: 4px solid var(--bege);
+      border-radius: 4px;
+    }
+
+    .servico p { color: var(--cinza); margin: 0; }
+
+    .redes {
+      background: var(--verde);
+      color: white;
+    }
+
+    .redes .cinza { color: #d5ded2; }
+
+    .redes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .rede {
+      padding: 32px;
+      background: #294235;
+      border: 1px solid #5f7265;
+      border-radius: 5px;
+    }
+
+    .rede p { color: #d5ded2; }
+
+    .facebook-area {
+      margin-top: 25px;
+      padding: 20px;
+      background: var(--creme);
+      color: var(--texto);
+      border-radius: 4px;
+    }
+
+    .facebook-area p { color: var(--cinza); font-size: 13px; }
+
+    iframe {
+      display: block;
+      max-width: 100%;
+      margin: auto;
+      border: 0;
+      background: white;
+    }
+
+    details {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--linha);
+    }
+
+    summary {
+      font-family: Georgia, serif;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    details p { margin: 15px 0 0; color: var(--cinza); }
+
+    .contactos { background: #e7ece3; }
+
+    .contactos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .contacto {
+      background: white;
+      padding: 35px;
+      border: 1px solid var(--linha);
+      border-radius: 5px;
+    }
+
+    .contacto a { overflow-wrap: anywhere; }
+    address { font-style: normal; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--linha);
+      text-align: left;
+      font-size: 14px;
+    }
+
+    th { font-weight: normal; }
+
+    footer {
+      background: var(--escuro);
+      color: #d3ded3;
+      padding: 30px 0;
+      font-size: 13px;
+    }
+
+    .rodape {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .rodape a { margin-right: 15px; }
+    [hidden] { display: none !important; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 950px) {
+      nav { gap: 14px; }
+      .hero-texto { padding: 55px 8%; }
+      .hero-imagem { min-height: 520px; }
+      .produtos { grid-template-columns: repeat(2, 1fr); }
+      .sobre { gap: 30px; }
+    }
+
+    @media (max-width: 700px) {
+      .cabecalho {
+        min-height: 75px;
+        flex-wrap: wrap;
+      }
+
+      .logo strong { font-size: 24px; }
+      .menu { display: block; }
+
+      nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 0 20px;
+        gap: 0;
+      }
+
+      nav.aberto { display: flex; }
+      nav a { padding: 9px 0; }
+
+      .hero,
+      .sobre,
+      .produtos,
+      .servicos,
+      .redes-grid,
+      .contactos-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-texto { padding: 55px 6%; }
+      .hero-imagem { min-height: 300px; }
+      .faixa .container { justify-content: center; text-align: center; }
+      section { padding: 55px 0; }
+      .pesquisa { width: 100%; }
+      .produto img { height: 280px; }
+      .rede, .contacto { padding: 25px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
     }
   </style>
 </head>
+
 <body>
+  <div class="topo">
+    Lousada · Segunda a sábado: 09:00–19:00 ·
+    <a href="tel:+351255822680">255 822 680</a>
+  </div>
 
   <header>
-    <h2>👓 Piscar D'Olho</h2>
-    <nav>
-      <a href="#inicio">Início</a>
-      <a href="#catalogo">Catálogo</a>
-      <a href="#marcas">Marcas</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#contactos">Contactos</a>
-    </nav>
+    <div class="container cabecalho">
+      <a class="logo" href="#inicio">
+        <strong>Piscar D’Olho</strong>
+        <small>ÓPTICA · LOUSADA</small>
+      </a>
+
+      <button class="menu" id="menu"
+              aria-controls="navegacao" aria-expanded="false">
+        Menu ☰
+      </button>
+
+      <nav id="navegacao" aria-label="Navegação principal">
+        <a href="#sobre">A ótica</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#marcas">Marcas</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#redes">Novidades</a>
+        <a href="#contactos">Contactos</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section class="hero" id="inicio">
-      <div>
-        <p>ÓPTICA · VISÃO · ESTILO</p>
-        <h1>O teu olhar merece algo especial.</h1>
+    <div class="hero" id="inicio">
+      <div class="hero-texto">
+        <p class="etiqueta">Visão · Personalidade · Estilo</p>
+        <h1>O teu olhar<br>merece algo especial.</h1>
         <p>
-          Na Óptica Piscar D'Olho, ajudamos-te a encontrar
-          os óculos ideais para a tua visão e personalidade.
+          Descobre armações que combinam contigo e cuidados de visão
+          perto de ti. Bem-vindo à Óptica Piscar D’Olho, em Lousada.
         </p>
-        <a class="button" href="#catalogo">Descobrir coleção →</a>
+
+        <div class="acoes">
+          <a class="botao bege" href="#catalogo">Explorar catálogo →</a>
+          <a class="botao bege" href="tel:+351255822680">Pedir uma consulta</a>
+        </div>
+      </div>
+
+      <div class="hero-imagem">
+        <img
+          src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&amp;fit=crop&amp;w=1400&amp;q=85"
+          alt="Óculos de sol numa fotografia de apresentação"
+          fetchpriority="high">
+        <span class="legenda">Fotografia ilustrativa</span>
+      </div>
+    </div>
+
+    <div class="faixa">
+      <div class="container">
+        <span>Consultas com optometrista</span>
+        <span>Óculos graduados e de sol</span>
+        <span>Lentes de contacto e manutenção</span>
+      </div>
+    </div>
+
+    <section id="sobre">
+      <div class="container sobre">
+        <div>
+          <p class="etiqueta">A nossa ótica</p>
+          <h2>Uma escolha que começa no teu olhar.</h2>
+        </div>
+
+        <div>
+          <p>
+            A Óptica Piscar D’Olho está situada em Lousada e disponibiliza
+            armações de óculos de grau, óculos de sol, lentes de contacto
+            e líquidos de manutenção.
+          </p>
+          <p class="cinza">
+            Também podes contactar-nos para informações sobre consultas
+            e cuidados de visão com optometrista. Visita a loja para
+            conhecer as opções e conversar com a equipa sobre as tuas
+            necessidades.
+          </p>
+          <a class="botao contorno" href="#contactos">Planear a minha visita →</a>
+        </div>
       </div>
     </section>
 
-    <section>
-      <div class="intro">
-        <h2>Bem-vindo à Piscar D'Olho</h2>
-        <p>
-          Somos uma ótica em Lousada dedicada ao cuidado da visão.
-          Descobre armações, óculos de sol e soluções de contacto,
-          com aconselhamento e atenção às tuas necessidades.
+    <section class="catalogo" id="catalogo">
+      <div class="container">
+        <div class="introducao">
+          <p class="etiqueta">Descobre as opções</p>
+          <h2>O nosso catálogo por categorias.</h2>
+          <p class="cinza">
+            Explora os tipos de produtos da ótica. Para conhecer os modelos
+            publicados pela loja, visita o Instagram e o Facebook.
+          </p>
+        </div>
+
+        <div class="controlos">
+          <div class="filtros" role="group" aria-label="Filtrar catálogo">
+            <button class="filtro" data-filtro="todos" aria-pressed="true">
+              Todos
+            </button>
+            <button class="filtro" data-filtro="grau" aria-pressed="false">
+              Óculos de grau
+            </button>
+            <button class="filtro" data-filtro="sol" aria-pressed="false">
+              Óculos de sol
+            </button>
+            <button class="filtro" data-filtro="lentes" aria-pressed="false">
+              Lentes e cuidados
+            </button>
+          </div>
+
+          <label>
+            <span class="sr-only">Pesquisar categorias</span>
+            <input class="pesquisa" id="pesquisa" type="search"
+                   placeholder="Pesquisar no catálogo…">
+          </label>
+        </div>
+
+        <p class="sr-only" id="resultado" role="status" aria-live="polite"></p>
+
+        <div class="produtos">
+          <article class="produto"
+                   data-categoria="grau"
+                   data-pesquisa="armações óculos grau graduados">
+            <img
+              src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+              alt="Exemplo ilustrativo de armação de óculos"
+              loading="lazy">
+            <div class="produto-info">
+              <small>Óculos de grau · imagem ilustrativa</small>
+              <h3>Armações graduadas</h3>
+              <p>
+                Conhece as armações disponíveis e encontra um estilo
+                para acompanhar o teu dia a dia.
+              </p>
+              <a href="mailto:geral@opticapiscardolho.pt?subject=Informações%20sobre%20óculos%20graduados">
+                Consultar opções e preços →
+              </a>
+            </div>
+          </article>
+
+          <article class="produto"
+                   data-categoria="sol"
+                   data-pesquisa="óculos sol estilo">
+            <img
+              src="https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+              alt="Exemplo ilustrativo de óculos de sol"
+              loading="lazy">
+            <div class="produto-info">
+              <small>Óculos de sol · imagem ilustrativa</small>
+              <h3>Estilo ao sol</h3>
+              <p>
+                Experimenta os modelos na loja e pede informações
+                sobre as características de cada opção.
+              </p>
+              <a href="mailto:geral@opticapiscardolho.pt?subject=Informações%20sobre%20óculos%20de%20sol">
+                Consultar modelos →
+              </a>
+            </div>
+          </article>
+
+          <article class="produto"
+                   data-categoria="lentes"
+                   data-pesquisa="lentes contacto líquidos manutenção cuidados">
+            <div style="height:260px;background:#e7ece3;display:grid;place-items:center">
+              <svg width="190" height="130" viewBox="0 0 190 130"
+                   role="img" aria-label="Ilustração de lente e líquido de manutenção">
+                <ellipse cx="55" cy="80" rx="40" ry="18"
+                         fill="#faf8f3" stroke="#20362d" stroke-width="2"/>
+                <path d="M15 80 Q55 120 95 80"
+                      fill="none" stroke="#20362d" stroke-width="2"/>
+                <rect x="120" y="30" width="45" height="75" rx="8"
+                      fill="#faf8f3" stroke="#20362d" stroke-width="2"/>
+                <rect x="128" y="18" width="29" height="13" rx="3"
+                      fill="#20362d"/>
+                <path d="M132 65 H153 M142 54 V76"
+                      stroke="#b77a52" stroke-width="3"/>
+              </svg>
+            </div>
+            <div class="produto-info">
+              <small>Lentes e cuidados · ilustração</small>
+              <h3>Lentes de contacto</h3>
+              <p>
+                Lentes de contacto e líquidos de manutenção.
+                Fala com a equipa para conhecer os produtos disponíveis.
+              </p>
+              <a href="mailto:geral@opticapiscardolho.pt?subject=Informações%20sobre%20lentes%20de%20contacto">
+                Pedir informações →
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <p id="vazio" hidden>
+          Não encontrámos essa categoria. Pesquisa por “grau”, “sol” ou “lentes”.
         </p>
-      </div>
-    </section>
 
-    <section id="catalogo">
-      <div class="intro">
-        <h2>O nosso catálogo</h2>
-        <p>Alguns exemplos de estilos para encontrares o teu próximo par.</p>
-      </div>
+        <p class="nota">
+          Fotografias ilustrativas, não retiradas das redes sociais da loja.
+          Este catálogo apresenta categorias, não modelos com stock confirmado.
+          Preços e disponibilidade sob consulta.
+        </p>
 
-      <div class="products">
-        <article class="product">
-          <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=700&q=80"
-               alt="Armações de óculos graduados">
-          <div class="product-info">
-            <h3>Armações graduadas</h3>
-            <p>Conforto e estilo para o dia a dia.</p>
-            <span class="price">Consultar preço</span>
+        <div id="marcas" style="padding-top:45px">
+          <h3>Marcas disponíveis</h3>
+          <p class="cinza">Contacta-nos para conhecer os modelos de cada marca.</p>
+          <div class="marcas">
+            <span>IZIPIZI</span>
+            <span>Bolon Eyewear</span>
+            <span>Eyepetizer</span>
+            <span>Ray-Ban Junior</span>
+            <span>Lozza</span>
+            <span>Twinset</span>
+            <span>Furla</span>
           </div>
-        </article>
-
-        <article class="product">
-          <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=700&q=80"
-               alt="Óculos de sol modernos">
-          <div class="product-info">
-            <h3>Óculos de sol</h3>
-            <p>Proteção e personalidade em qualquer estação.</p>
-            <span class="price">Consultar preço</span>
-          </div>
-        </article>
-
-        <article class="product">
-          <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=700&q=80"
-               alt="Coleção de óculos elegantes">
-          <div class="product-info">
-            <h3>Coleção elegante</h3>
-            <p>Modelos para diferentes gostos e ocasiões.</p>
-            <span class="price">Consultar preço</span>
-          </div>
-        </article>
-      </div>
-      <p style="font-size:13px;color:#657067;margin-top:22px">
-        As fotografias são ilustrativas. Contacta a loja para conhecer
-        os modelos, preços e disponibilidade reais.
-      </p>
-    </section>
-
-    <section class="brands" id="marcas">
-      <h2>As nossas marcas</h2>
-      <p>Uma seleção de marcas para diferentes estilos.</p>
-      <div class="brand-list">
-        <span>IZIPIZI</span>
-        <span>Bolon Eyewear</span>
-        <span>Eyepetizer</span>
-        <span>Ray-Ban Junior</span>
-        <span>Lozza</span>
-        <span>Twinset</span>
-        <span>Furla</span>
+        </div>
       </div>
     </section>
 
     <section id="servicos">
-      <div class="intro">
-        <h2>Os nossos serviços</h2>
-        <p>Cuidamos da tua visão com atenção e aconselhamento.</p>
-      </div>
-      <div class="services">
-        <article class="service">
-          <h3>👁️ Cuidados de visão</h3>
-          <p>Consultas e cuidados de visão com optometrista.
-             Contacta-nos para informações e marcações.</p>
-        </article>
-        <article class="service">
-          <h3>👓 Óculos graduados</h3>
-          <p>Armações para diferentes estilos e necessidades visuais.</p>
-        </article>
-        <article class="service">
-          <h3>☀️ Óculos de sol</h3>
-          <p>Modelos para complementar o teu estilo e proteger os olhos.</p>
-        </article>
-        <article class="service">
-          <h3>✨ Lentes de contacto</h3>
-          <p>Lentes de contacto e líquidos de manutenção.</p>
-        </article>
+      <div class="container">
+        <div class="introducao">
+          <p class="etiqueta">Cuidados de visão</p>
+          <h2>Da consulta à escolha dos teus óculos.</h2>
+          <p class="cinza">
+            Contacta a equipa para conhecer os serviços e combinar a tua visita.
+          </p>
+        </div>
+
+        <div class="servicos">
+          <article class="servico">
+            <h3>Consultas de optometria</h3>
+            <p>
+              Consultas e cuidados de visão com optometrista.
+              Liga para conhecer os horários e pedir uma marcação.
+            </p>
+          </article>
+
+          <article class="servico">
+            <h3>Óculos graduados</h3>
+            <p>
+              Armações para diferentes estilos. Conversa com a equipa
+              sobre as opções para as tuas necessidades visuais.
+            </p>
+          </article>
+
+          <article class="servico">
+            <h3>Óculos de sol</h3>
+            <p>
+              Conhece os modelos disponíveis na loja e pede informações
+              sobre as características das lentes e armações.
+            </p>
+          </article>
+
+          <article class="servico">
+            <h3>Lentes e manutenção</h3>
+            <p>
+              Lentes de contacto e líquidos de manutenção.
+              Consulta as referências e disponibilidade com a equipa.
+            </p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="contact" id="contactos">
-      <h2>Visita a Piscar D'Olho</h2>
-      <p><strong>Morada:</strong><br>
-        Rua do Tojeiro, nº 549, R/C Esq<br>
-        4620-668 Lousada, Portugal
-      </p>
-      <p><strong>Telefone:</strong>
-        <a href="tel:+351255822680">255 822 680</a>
-      </p>
-      <p><strong>E-mail:</strong>
-        <a href="mailto:geral@opticapiscardolho.pt">
-          geral@opticapiscardolho.pt
-        </a>
-      </p>
-      <p><strong>Horário:</strong><br>
-        Segunda a sábado: 09:00–19:00<br>
-        Domingo: encerrado
-      </p>
-      <a class="button"
-         href="https://www.google.com/maps/search/?api=1&query=Rua+do+Tojeiro+549+Lousada"
-         target="_blank" rel="noopener">
-        Ver localização no mapa →
-      </a>
-      <p>
-        <a href="https://www.instagram.com/opticapiscardolho/"
-           target="_blank" rel="noopener">Instagram</a>
-        &nbsp; | &nbsp;
-        <a href="https://www.facebook.com/piscardolho/?locale=pt_BR"
-           target="_blank" rel="noopener">Facebook</a>
-      </p>
+    <section class="redes" id="redes">
+      <div class="container">
+        <div class="introducao">
+          <p class="etiqueta">Instagram e Facebook</p>
+          <h2>Acompanha as novidades da loja.</h2>
+          <p class="cinza">
+            Descobre as fotografias, modelos e coleções partilhadas
+            nas páginas da Óptica Piscar D’Olho.
+          </p>
+        </div>
+
+        <div class="redes-grid">
+          <article class="rede">
+            <h3>Instagram</h3>
+            <p><strong>@opticapiscardolho</strong></p>
+            <p>
+              Abre o perfil para explorar as publicações reais da ótica.
+              O Instagram poderá pedir que inicies sessão.
+            </p>
+            <a class="botao bege"
+               href="https://www.instagram.com/opticapiscardolho/"
+               target="_blank" rel="noopener noreferrer">
+              Ver publicações no Instagram ↗
+            </a>
+          </article>
+
+          <article class="rede">
+            <h3>Facebook</h3>
+            <p>Óptica Piscar D’Olho</p>
+            <p>
+              Visita a página ou tenta carregar as publicações
+              diretamente nesta área.
+            </p>
+            <a class="botao bege"
+               href="https://www.facebook.com/piscardolho/"
+               target="_blank" rel="noopener noreferrer">
+              Abrir página do Facebook ↗
+            </a>
+
+            <div class="facebook-area" id="facebook-area">
+              <p>
+                Ao carregar esta área, ligas-te ao Facebook, que poderá
+                receber dados da tua visita. A visualização depende
+                das permissões da página e do navegador.
+              </p>
+              <button class="botao" id="carregar-facebook" type="button">
+                Carregar publicações
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="perguntas">
+      <div class="container">
+        <p class="etiqueta">Antes de nos visitares</p>
+        <h2>Perguntas frequentes.</h2>
+
+        <details>
+          <summary>Como posso marcar uma consulta?</summary>
+          <p>
+            Liga para <a href="tel:+351255822680">255 822 680</a>
+            ou envia um e-mail para
+            <a href="mailto:geral@opticapiscardolho.pt">
+              geral@opticapiscardolho.pt
+            </a>.
+            A equipa confirma os horários disponíveis. O pedido
+            por e-mail não confirma automaticamente a marcação.
+          </p>
+        </details>
+
+        <details>
+          <summary>Como posso saber o preço de um modelo?</summary>
+          <p>
+            Contacta a loja e indica a marca, o modelo ou a publicação
+            que viste no Instagram ou Facebook. A equipa poderá
+            informar-te sobre preço e disponibilidade.
+          </p>
+        </details>
+
+        <details>
+          <summary>Vendem lentes de contacto?</summary>
+          <p>
+            Sim. A oferta indicada inclui lentes de contacto e líquidos
+            de manutenção. Consulta os produtos disponíveis com a equipa.
+          </p>
+        </details>
+
+        <details>
+          <summary>Estão abertos ao sábado?</summary>
+          <p>
+            O horário indicado é de segunda a sábado, das 09:00 às 19:00.
+            Ao domingo, a loja está encerrada. Confirma alterações
+            em feriados antes de te deslocares.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <section class="contactos" id="contactos">
+      <div class="container">
+        <div class="introducao">
+          <p class="etiqueta">Visita-nos em Lousada</p>
+          <h2>Estamos à tua espera.</h2>
+        </div>
+
+        <div class="contactos-grid">
+          <div class="contacto">
+            <h3>Morada e contactos</h3>
+            <address>
+              Rua do Tojeiro, nº 549, R/C Esq<br>
+              4620-668 Lousada, Portugal
+            </address>
+
+            <p class="nota">
+              União das Freguesias de Silvares, Pias, Nogueira e Alvarenga.
+            </p>
+
+            <p>
+              <strong>Telefone:</strong><br>
+              <a href="tel:+351255822680">+351 255 822 680</a>
+            </p>
+
+            <p>
+              <strong>E-mail:</strong><br>
+              <a href="mailto:geral@opticapiscardolho.pt">
+                geral@opticapiscardolho.pt
+              </a>
+            </p>
+
+            <a class="botao contorno"
+               href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20do%20Tojeiro%20549%204620-668%20Lousada"
+               target="_blank" rel="noopener noreferrer">
+              Ver localização no mapa ↗
+            </a>
+
+            <p class="nota">Chamada para a rede fixa nacional.</p>
+          </div>
+
+          <div class="contacto">
+            <h3>Horário de funcionamento</h3>
+
+            <table>
+              <caption class="sr-only">Horário da ótica</caption>
+              <tbody>
+                <tr>
+                  <th scope="row">Segunda a sexta</th>
+                  <td>09:00–19:00</td>
+                </tr>
+                <tr>
+                  <th scope="row">Sábado</th>
+                  <td>09:00–19:00</td>
+                </tr>
+                <tr>
+                  <th scope="row">Domingo</th>
+                  <td>Encerrado</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p class="nota">
+              Confirma eventuais alterações em feriados e os horários
+              específicos das consultas.
+            </p>
+
+            <h3>Queres pedir uma consulta?</h3>
+            <p class="cinza">
+              Contacta-nos para informações e disponibilidade.
+            </p>
+
+            <div class="acoes">
+              <a class="botao" href="tel:+351255822680">Ligar à ótica</a>
+              <a class="botao contorno"
+                 href="mailto:geral@opticapiscardolho.pt?subject=Pedido%20de%20marcação%20de%20consulta">
+                Pedir por e-mail
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    © <span id="ano"></span> Óptica Piscar D'Olho · Lousada
+    <div class="container rodape">
+      <span>
+        © <span id="ano">2026</span> Óptica Piscar D’Olho · Lousada
+      </span>
+      <div>
+        <a href="https://www.instagram.com/opticapiscardolho/"
+           target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/piscardolho/"
+           target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="#inicio">Voltar ao início ↑</a>
+      </div>
+    </div>
   </footer>
 
   <script>
-    document.getElementById("ano").textContent =
-      new Date().getFullYear();
+    "use strict";
+
+    document.getElementById("ano").textContent = new Date().getFullYear();
+
+    // Menu para telemóveis.
+    const menu = document.getElementById("menu");
+    const navegacao = document.getElementById("navegacao");
+
+    menu.addEventListener("click", () => {
+      const aberto = menu.getAttribute("aria-expanded") !== "true";
+      menu.setAttribute("aria-expanded", String(aberto));
+      navegacao.classList.toggle("aberto", aberto);
+    });
+
+    navegacao.addEventListener("click", (evento) => {
+      if (evento.target.closest("a")) {
+        navegacao.classList.remove("aberto");
+        menu.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    // Pesquisa e filtros do catálogo.
+    const filtros = [...document.querySelectorAll(".filtro")];
+    const produtos = [...document.querySelectorAll(".produto")];
+    const pesquisa = document.getElementById("pesquisa");
+    let categoria = "todos";
+
+    function normalizar(texto) {
+      return texto
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase();
+    }
+
+    function atualizarCatalogo() {
+      const termo = normalizar(pesquisa.value.trim());
+      let encontrados = 0;
+
+      produtos.forEach((produto) => {
+        const correspondeCategoria =
+          categoria === "todos" ||
+          produto.dataset.categoria === categoria;
+
+        const correspondePesquisa =
+          normalizar(produto.dataset.pesquisa).includes(termo);
+
+        const visivel = correspondeCategoria && correspondePesquisa;
+        produto.hidden = !visivel;
+
+        if (visivel) encontrados++;
+      });
+
+      document.getElementById("vazio").hidden = encontrados !== 0;
+      document.getElementById("resultado").textContent =
+        encontrados + " categorias encontradas.";
+    }
+
+    filtros.forEach((botao) => {
+      botao.addEventListener("click", () => {
+        categoria = botao.dataset.filtro;
+
+        filtros.forEach((filtro) => {
+          filtro.setAttribute(
+            "aria-pressed",
+            String(filtro === botao)
+          );
+        });
+
+        atualizarCatalogo();
+      });
+    });
+
+    pesquisa.addEventListener("input", atualizarCatalogo);
+    atualizarCatalogo();
+
+    // Facebook: só é carregado após o visitante clicar.
+    document.getElementById("carregar-facebook")
+      .addEventListener("click", () => {
+        const area = document.getElementById("facebook-area");
+        const iframe = document.createElement("iframe");
+
+        iframe.title = "Publicações da Óptica Piscar D’Olho no Facebook";
+        iframe.src =
+          "https://www.facebook.com/plugins/page.php?href=" +
+          encodeURIComponent("https://www.facebook.com/piscardolho/") +
+          "&tabs=timeline&width=320&height=500" +
+          "&small_header=false&adapt_container_width=true" +
+          "&hide_cover=false&show_facepile=false";
+
+        iframe.width = "320";
+        iframe.height = "500";
+        iframe.loading = "lazy";
+        iframe.referrerPolicy = "strict-origin-when-cross-origin";
+
+        const aviso = document.createElement("p");
+        aviso.className = "nota";
+        aviso.textContent =
+          "Se as publicações não aparecerem, usa o botão " +
+          "“Abrir página do Facebook”. A incorporação pode " +
+          "ser bloqueada pelo Facebook ou pelo navegador.";
+
+        area.replaceChildren(iframe, aviso);
+      });
+
+    // As imagens de exemplo dependem de ligação à Internet.
+    // Para usar fotografias da loja, coloca-as numa pasta "imagens"
+    // e troca os endereços, por exemplo: src="imagens/oculos-sol.jpg".
   </script>
 </body>
 </html>
