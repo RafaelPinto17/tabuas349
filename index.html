@@ -1,121 +1,293 @@
+«
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-PT">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tábuas 349 — Enchidos & Fruta Laminada</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Óptica Piscar D'Olho | Lousada</title>
+  <meta name="description" content="Óptica Piscar D'Olho em Lousada. Óculos graduados, óculos de sol, lentes de contacto e cuidados de visão.">
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #26352e;
+      background: #faf8f3;
+    }
+    header {
+      background: #20362d;
+      color: white;
+      padding: 22px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    header h2 { margin: 0; }
+    nav { display: flex; flex-wrap: wrap; gap: 18px; }
+    nav a { color: white; text-decoration: none; }
+    nav a:hover { color: #e9b99b; }
+    .hero {
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      padding: 65px 8%;
+      color: white;
+      background:
+        linear-gradient(90deg, #20362de8, #20362d55),
+        url("https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1600&q=85")
+        center/cover;
+    }
+    .hero div { max-width: 570px; }
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(38px, 6vw, 65px);
+      margin: 0 0 20px;
+    }
+    .hero p { font-size: 18px; line-height: 1.7; }
+    .button {
+      display: inline-block;
+      background: #e8b394;
+      color: #20362d;
+      padding: 14px 22px;
+      margin-top: 12px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section { padding: 65px 7%; }
+    .intro { text-align: center; max-width: 850px; margin: auto; }
+    h2 { font-family: Georgia, serif; }
+    .intro p, .service p { line-height: 1.8; color: #657067; }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 30px;
+    }
+    .product {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px #26352e12;
+    }
+    .product img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+    }
+    .product-info { padding: 18px; }
+    .product-info h3 { margin: 0 0 8px; }
+    .product-info p { color: #69756c; font-size: 14px; }
+    .price { font-weight: bold; color: #b66d4b; }
+    .brands { background: #e7ece3; text-align: center; }
+    .brand-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 25px;
+    }
+    .brand-list span {
+      background: white;
+      padding: 14px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      margin-top: 25px;
+    }
+    .service {
+      background: white;
+      padding: 24px;
+      border-radius: 8px;
+    }
+    .contact {
+      background: #20362d;
+      color: white;
+    }
+    .contact p { line-height: 1.8; }
+    .contact a:not(.button) { color: #f0c4a8; }
+    footer {
+      background: #15251e;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      font-size: 14px;
+    }
+    @media (max-width: 600px) {
+      header { justify-content: center; text-align: center; }
+      nav { justify-content: center; }
+      .hero { padding: 55px 7%; }
+    }
+  </style>
 </head>
-
 <body>
 
-  <!-- ============================
-       HEADER MODERNO
-  ============================ -->
-  <header class="topo">
-    <div class="logo">Tábuas 349</div>
+  <header>
+    <h2>👓 Piscar D'Olho</h2>
     <nav>
-      <a href="#sobre">Sobre</a>
-      <a href="#fundadora">Fundadora</a>
-      <a href="#tabuas">Tábuas</a>
-      <a href="#fruta">Fruta Laminada</a> 
-      <a href="#galeria">Galeria</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#inicio">Início</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#marcas">Marcas</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#contactos">Contactos</a>
     </nav>
   </header>
 
-  <!-- ============================
-       HERO MODERNO
-  ============================ -->
-  <section class="hero">
-  <div class="hero-texto">
-    <h1>Enchidos Artesanais & Fruta Laminada</h1>
-    <p>Sabores únicos preparados com dedicação por Orquídia Meneses.</p>
-    <a href="#tabuas" class="botao">Ver Tábuas</a>
-  </div>
-</section>
+  <main>
+    <section class="hero" id="inicio">
+      <div>
+        <p>ÓPTICA · VISÃO · ESTILO</p>
+        <h1>O teu olhar merece algo especial.</h1>
+        <p>
+          Na Óptica Piscar D'Olho, ajudamos-te a encontrar
+          os óculos ideais para a tua visão e personalidade.
+        </p>
+        <a class="button" href="#catalogo">Descobrir coleção →</a>
+      </div>
+    </section>
 
+    <section>
+      <div class="intro">
+        <h2>Bem-vindo à Piscar D'Olho</h2>
+        <p>
+          Somos uma ótica em Lousada dedicada ao cuidado da visão.
+          Descobre armações, óculos de sol e soluções de contacto,
+          com aconselhamento e atenção às tuas necessidades.
+        </p>
+      </div>
+    </section>
 
+    <section id="catalogo">
+      <div class="intro">
+        <h2>O nosso catálogo</h2>
+        <p>Alguns exemplos de estilos para encontrares o teu próximo par.</p>
+      </div>
 
-  <!-- ============================
-       SOBRE
-  ============================ -->
-  <section id="sobre" class="secao secao-alt">
-    <h2>Sobre Nós</h2>
-    <p>Produzimos tábuas de enchidos artesanais e pratos de fruta laminada com ingredientes frescos e selecionados.</p>
-  </section>
+      <div class="products">
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=700&q=80"
+               alt="Armações de óculos graduados">
+          <div class="product-info">
+            <h3>Armações graduadas</h3>
+            <p>Conforto e estilo para o dia a dia.</p>
+            <span class="price">Consultar preço</span>
+          </div>
+        </article>
 
-  <!-- ============================
-       FUNDADORA
-  ============================ -->
-<section id="fundadora" class="secao">
-  <h2>A Fundadora</h2>
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=700&q=80"
+               alt="Óculos de sol modernos">
+          <div class="product-info">
+            <h3>Óculos de sol</h3>
+            <p>Proteção e personalidade em qualquer estação.</p>
+            <span class="price">Consultar preço</span>
+          </div>
+        </article>
 
-  <div class="fundadora-container">
-    <img src="img/orquidia.jpg" alt="Orquídia Meneses" class="fundadora-foto">
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=700&q=80"
+               alt="Coleção de óculos elegantes">
+          <div class="product-info">
+            <h3>Coleção elegante</h3>
+            <p>Modelos para diferentes gostos e ocasiões.</p>
+            <span class="price">Consultar preço</span>
+          </div>
+        </article>
+      </div>
+      <p style="font-size:13px;color:#657067;margin-top:22px">
+        As fotografias são ilustrativas. Contacta a loja para conhecer
+        os modelos, preços e disponibilidade reais.
+      </p>
+    </section>
 
-    <div class="fundadora-texto">
-      <h3>Orquídia Meneses</h3>
-      <p>Fundadora da <strong>Tábuas 349</strong>, apaixonada por gastronomia artesanal.</p>
-      <p>Transforma ingredientes frescos em tábuas irresistíveis e fruta laminada premium.</p>
-    </div>
-  </div>
-</section>
+    <section class="brands" id="marcas">
+      <h2>As nossas marcas</h2>
+      <p>Uma seleção de marcas para diferentes estilos.</p>
+      <div class="brand-list">
+        <span>IZIPIZI</span>
+        <span>Bolon Eyewear</span>
+        <span>Eyepetizer</span>
+        <span>Ray-Ban Junior</span>
+        <span>Lozza</span>
+        <span>Twinset</span>
+        <span>Furla</span>
+      </div>
+    </section>
 
+    <section id="servicos">
+      <div class="intro">
+        <h2>Os nossos serviços</h2>
+        <p>Cuidamos da tua visão com atenção e aconselhamento.</p>
+      </div>
+      <div class="services">
+        <article class="service">
+          <h3>👁️ Cuidados de visão</h3>
+          <p>Consultas e cuidados de visão com optometrista.
+             Contacta-nos para informações e marcações.</p>
+        </article>
+        <article class="service">
+          <h3>👓 Óculos graduados</h3>
+          <p>Armações para diferentes estilos e necessidades visuais.</p>
+        </article>
+        <article class="service">
+          <h3>☀️ Óculos de sol</h3>
+          <p>Modelos para complementar o teu estilo e proteger os olhos.</p>
+        </article>
+        <article class="service">
+          <h3>✨ Lentes de contacto</h3>
+          <p>Lentes de contacto e líquidos de manutenção.</p>
+        </article>
+      </div>
+    </section>
 
-  <!-- ============================
-       TÁBUAS
-  ============================ -->
- <section id="tabuas" class="secao secao-alt">
-  <h2>Tábuas de Enchidos</h2>
+    <section class="contact" id="contactos">
+      <h2>Visita a Piscar D'Olho</h2>
+      <p><strong>Morada:</strong><br>
+        Rua do Tojeiro, nº 549, R/C Esq<br>
+        4620-668 Lousada, Portugal
+      </p>
+      <p><strong>Telefone:</strong>
+        <a href="tel:+351255822680">255 822 680</a>
+      </p>
+      <p><strong>E-mail:</strong>
+        <a href="mailto:geral@opticapiscardolho.pt">
+          geral@opticapiscardolho.pt
+        </a>
+      </p>
+      <p><strong>Horário:</strong><br>
+        Segunda a sábado: 09:00–19:00<br>
+        Domingo: encerrado
+      </p>
+      <a class="button"
+         href="https://www.google.com/maps/search/?api=1&query=Rua+do+Tojeiro+549+Lousada"
+         target="_blank" rel="noopener">
+        Ver localização no mapa →
+      </a>
+      <p>
+        <a href="https://www.instagram.com/opticapiscardolho/"
+           target="_blank" rel="noopener">Instagram</a>
+        &nbsp; | &nbsp;
+        <a href="https://www.facebook.com/piscardolho/?locale=pt_BR"
+           target="_blank" rel="noopener">Facebook</a>
+      </p>
+    </section>
+  </main>
 
-  <div class="grid">
-    <div class="card">
-      <img src="img/tabua20.jpg" alt="Tábua Clássica">
-      <h3>Tábua Clássica</h3>
-      <p>Seleção de enchidos tradicionais.</p>
-      <span class="preco">20€</span>
-    </div>
+  <footer>
+    © <span id="ano"></span> Óptica Piscar D'Olho · Lousada
+  </footer>
 
-    <div class="card">
-      <img src="img/tabua30.jpg" alt="Tábua Premium">
-      <h3>Tábua Premium</h3>
-      <p>Enchidos variados com presunto especial.</p>
-      <span class="preco">30€</span>
-    </div>
-
-    <div class="card">
-      <img src="img/tabua40.jpg" alt="Tábua Deluxe">
-      <h3>Tábua Deluxe</h3>
-      <p>Seleção completa com enchidos e queijos.</p>
-      <span class="preco">40€</span>
-    </div>
-  </div>
-</section>
-
-
-  <!-- ============================
-       FRUTA LAMINADA
-  ============================ -->
-
-  <section id="fruta" class="secao">
-  <h2>Fruta Laminada</h2>
-  <p>Pratos frescos com fruta laminada, perfeitos para eventos, festas ou momentos especiais.</p>
-  <img src="img/fruta.jpg" alt="Fruta laminada" class="fruta-foto">
-</section>
-
-
-  <!-- ============================
-       GALERIA
-  ============================ -->
- <section id="galeria" class="secao secao-alt">
-  <h2>Galeria</h2>
-
-  <div class="grid">
-    <img src="img/tabua1.jpg" class="galeria-img" alt="Tábua 1">
-    <img src="img/tabua2.jpg" class="galeria-img" alt="Tábua 2">
-    <img src="img/fruta2.jpg" class="galeria-img" alt="Fruta laminada 2">
-  </div>
-</section>
-
-
+  <script>
+    document.getElementById("ano").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
