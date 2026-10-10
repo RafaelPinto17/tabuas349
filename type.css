@@ -1,362 +1,404 @@
-/* ============================
-   VARIÁVEIS DE TEMA
-   ============================ */
-:root {
-  --cor-principal: #8b0000;
-  --cor-secundaria: #f7f7f7;
-  --cor-texto: #333;
-  --cor-branco: #fff;
-  --cor-sombra: rgba(0,0,0,0.12);
-  --cor-sombra-forte: rgba(0,0,0,0.22);
 
-  --radius: 14px;
-  --transicao: 0.25s ease;
+/* =====================================
+   ÓPTICA PISCAR D'OLHO
+   Folha de estilos do website
+===================================== */
+
+:root {
+  --verde: #20362d;
+  --verde-escuro: #15251e;
+  --creme: #faf8f3;
+  --bege: #e8b394;
+  --texto: #26352e;
+  --cinza: #657067;
+  --branco: #ffffff;
 }
 
-/* ============================
-   RESET E BASE
-   ============================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 30px;
+}
+
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: var(--cor-secundaria);
-  color: var(--cor-texto);
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--creme);
+  color: var(--texto);
   line-height: 1.6;
 }
-/* Centrar todo o texto do site */
-body, h1, h2, h3, h4, p, span, a, li, div {
-  text-align: center;
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
-/* ============================
-   HEADER MODERNO
-   ============================ */
-.topo {
-  position: sticky;
-  top: 0;
-  background: #ffffffee;
-  backdrop-filter: blur(6px);
-  padding: 16px 28px;
+a {
+  transition: 0.3s ease;
+}
+
+/* CABEÇALHO */
+
+header {
+  background: var(--verde);
+  color: var(--branco);
+  padding: 22px 7%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ddd;
-  z-index: 10;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.logo {
-  font-size: 1.7rem;
-  font-weight: bold;
-  color: var(--cor-principal);
+header h2 {
+  font-family: Georgia, serif;
+  font-size: 25px;
+  letter-spacing: 1px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
 }
 
 nav a {
-  margin: 0 14px;
+  color: var(--branco);
   text-decoration: none;
-  color: var(--cor-texto);
-  font-weight: 600;
-  transition: var(--transicao);
+  font-size: 14px;
 }
 
 nav a:hover {
-  color: var(--cor-principal);
+  color: var(--bege);
 }
 
-/* ============================
-   HERO PREMIUM
-   ============================ */
+/* APRESENTAÇÃO PRINCIPAL */
+
 .hero {
-  background: url("img/tabua1.jpg") center/cover no-repeat;
-  min-height: 70vh;
+  min-height: 520px;
+  padding: 70px 8%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  position: relative;
-  text-align: center;
-  color: var(--cor-branco);
+  color: white;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(32, 54, 45, 0.95),
+      rgba(32, 54, 45, 0.35)
+    ),
+    url("https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1600&q=85")
+    center / cover no-repeat;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-}
-
-.hero-texto {
-  position: relative;
-  max-width: 650px;
-  padding: 20px;
-  animation: fadeIn 1.2s ease forwards;
+.hero div {
+  max-width: 600px;
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 14px;
+  font-family: Georgia, serif;
+  font-size: clamp(40px, 6vw, 70px);
+  line-height: 1.12;
+  margin: 15px 0 20px;
 }
 
 .hero p {
-  font-size: 1.25rem;
-  margin-bottom: 26px;
-}
-
-/* ============================
-   BOTÃO PREMIUM
-   ============================ */
-.botao {
-  display: inline-block;
-  background: var(--cor-principal);
-  color: var(--cor-branco);
-  padding: 14px 36px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: var(--transicao);
-  box-shadow: 0 4px 12px var(--cor-sombra);
-}
-
-.botao:hover {
-  background: #a80000;
-  transform: translateY(-4px);
-  box-shadow: 0 8px 18px var(--cor-sombra-forte);
-}
-
-/* ============================
-   SECÇÕES
-   ============================ */
-.secao {
-  padding: 80px 20px;
-  text-align: center;
-}
-
-.secao-alt {
-  background: var(--cor-branco);
-}
-
-/* ============================
-   GRID DE PRODUTOS PREMIUM
-   ============================ */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 40px;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-
-.card {
-  background: var(--cor-branco);
-  width: 300px;
-  padding: 22px;
-  border-radius: var(--radius);
-  box-shadow: 0 0 18px var(--cor-sombra);
-  transition: var(--transicao);
-  text-align: center;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px var(--cor-sombra-forte);
-}
-
-.card img {
-  width: 100%;
-  border-radius: var(--radius);
-  margin-bottom: 14px;
-}
-
-.preco {
-  display: inline-block;
-  margin-top: 12px;
-  font-weight: bold;
-  color: var(--cor-principal);
-  font-size: 1.2rem;
-}
-
-/* ============================
-   FUNDADORA
-   ============================ */
-.fundadora-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  justify-content: center;
-  align-items: center;
-  max-width: 950px;
-  margin: 0 auto;
-}
-
-.fundadora-foto {
-  width: 300px;
-  border-radius: var(--radius);
-  box-shadow: 0 0 18px var(--cor-sombra);
-}
-
-.fundadora-texto {
-  max-width: 520px;
-  text-align: left;
-}
-
-.fundadora-texto h3 {
-  color: var(--cor-principal);
-  margin-bottom: 12px;
-  font-size: 1.8rem;
-}
-
-/* ============================
-   GALERIA
-   ============================ */
-.galeria-img {
-  width: 300px;
-  border-radius: var(--radius);
-  box-shadow: 0 0 14px var(--cor-sombra);
-  transition: var(--transicao);
-}
-
-.galeria-img:hover {
-  transform: scale(1.03);
-}
-
-/* ============================
-   FOOTER
-   ============================ */
-footer {
-  background: var(--cor-principal);
-  color: var(--cor-branco);
-  text-align: center;
-  padding: 24px;
-  margin-top: 60px;
-  font-size: 1rem;
-}
-
-/* ============================
-   ANIMAÇÕES
-   ============================ */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ============================
-   RESPONSIVO
-   ============================ */
-@media (max-width: 768px) {
-  .hero {
-    min-height: 55vh;
-  }
-
-  .hero h1 {
-    font-size: 2.3rem;
-  }
-
-  .card {
-    width: 90%;
-    max-width: 360px;
-  }
-
-  .fundadora-texto {
-    text-align: center;
-  }
-}
-/* ============================
-   LAYOUT PREMIUM REFINADO
-   ============================ */
-
-/* Limitar largura das secções para ficar mais elegante */
-.secao, .secao-alt {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 80px 20px;
-}
-
-/* Títulos mais premium */
-h2 {
-  font-size: 2.4rem;
-  margin-bottom: 30px;
-  color: var(--cor-principal);
-  font-weight: 700;
-}
-
-h3 {
-  font-size: 1.6rem;
-  margin-bottom: 12px;
-}
-
-/* Fotos centradas */
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Hero mais limpo e elegante */
-.hero {
-  background: url("img/tabua1.jpg") center/cover no-repeat;
-  min-height: 65vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: var(--cor-branco);
-  padding: 40px 20px;
-}
-
-.hero-texto {
-  max-width: 700px;
-}
-
-/* Cartões mais equilibrados */
-.card {
-  background: var(--cor-branco);
-  width: 300px;
-  padding: 26px;
-  border-radius: var(--radius);
-  box-shadow: 0 0 18px var(--cor-sombra);
-  transition: var(--transicao);
-  text-align: center;
-}
-
-.card img {
-  width: 100%;
-  border-radius: var(--radius);
+  font-size: 17px;
   margin-bottom: 18px;
 }
 
-/* Galeria mais premium */
-.galeria-img {
-  width: 300px;
-  border-radius: var(--radius);
-  box-shadow: 0 0 14px var(--cor-sombra);
-  transition: var(--transicao);
+/* BOTÕES */
+
+.button {
+  display: inline-block;
+  background: var(--bege);
+  color: var(--verde-escuro);
+  padding: 14px 25px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 12px;
+  border: 2px solid var(--bege);
+}
+
+.button:hover {
+  background: transparent;
+  color: var(--branco);
+}
+
+/* SECÇÕES */
+
+section {
+  padding: 70px 7%;
+}
+
+section h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(29px, 4vw, 42px);
   margin-bottom: 20px;
 }
 
-.galeria-img:hover {
+.intro {
+  max-width: 850px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.intro p {
+  color: var(--cinza);
+  line-height: 1.9;
+}
+
+/* CATÁLOGO DE PRODUTOS */
+
+#catalogo {
+  background: #f3f0e8;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.product {
+  background: var(--branco);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 22px rgba(32, 54, 45, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 12px 30px rgba(32, 54, 45, 0.15);
+}
+
+.product img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.product:hover img {
   transform: scale(1.04);
 }
 
-/* Secção da fundadora mais equilibrada */
-.fundadora-container {
-  max-width: 900px;
-  margin: 0 auto;
-  gap: 40px;
+.product-info {
+  padding: 22px;
 }
 
-.fundadora-texto {
-  max-width: 550px;
-  margin: 0 auto;
+.product-info h3 {
+  font-family: Georgia, serif;
+  font-size: 21px;
+  margin-bottom: 8px;
 }
 
-/* Espaçamento premium entre secções */
-.secao + .secao,
-.secao-alt + .secao,
-.secao + .secao-alt {
-  margin-top: 40px;
+.product-info p {
+  color: var(--cinza);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.price {
+  color: #a75f3d;
+  font-weight: bold;
+}
+
+/* MARCAS */
+
+.brands {
+  background: #e7ece3;
+  text-align: center;
+}
+
+.brand-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.brand-list span {
+  background: var(--branco);
+  padding: 15px 22px;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 0 3px 10px #20362d0d;
+}
+
+/* SERVIÇOS */
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+  margin-top: 35px;
+}
+
+.service {
+  background: var(--branco);
+  padding: 30px;
+  border-radius: 8px;
+  border-left: 4px solid var(--bege);
+  box-shadow: 0 5px 20px #20362d0a;
+}
+
+.service h3 {
+  font-family: Georgia, serif;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.service p {
+  color: var(--cinza);
+}
+
+/* CONTACTOS */
+
+.contact {
+  background: var(--verde);
+  color: var(--branco);
+}
+
+.contact h2 {
+  color: var(--branco);
+}
+
+.contact p {
+  margin: 16px 0;
+}
+
+.contact a:not(.button) {
+  color: var(--bege);
+  overflow-wrap: anywhere;
+}
+
+.contact a:not(.button):hover {
+  color: white;
+}
+
+/* RODAPÉ */
+
+footer {
+  background: var(--verde-escuro);
+  color: var(--branco);
+  text-align: center;
+  padding: 28px 15px;
+  font-size: 14px;
+}
+
+/* ANIMAÇÕES */
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero div {
+  animation: aparecer 0.8s ease both;
+}
+
+/* TABLETS */
+
+@media (max-width: 900px) {
+  header {
+    padding: 20px 5%;
+  }
+
+  nav {
+    gap: 15px;
+  }
+
+  .products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .product img {
+    height: 240px;
+  }
+}
+
+/* TELEMÓVEIS */
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  header h2 {
+    font-size: 23px;
+  }
+
+  nav {
+    justify-content: center;
+    gap: 12px 18px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  .hero {
+    min-height: 440px;
+    padding: 50px 7%;
+    background-position: center;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  section {
+    padding: 50px 6%;
+  }
+
+  .products {
+    grid-template-columns: 1fr;
+  }
+
+  .product img {
+    height: 280px;
+  }
+
+  .services {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-list span {
+    padding: 12px 15px;
+    font-size: 13px;
+  }
+}
+
+/* ACESSIBILIDADE */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
 }
