@@ -1,1 +1,684 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <title>Catálogo | Óptica Piscar D’Olho</title>
+  <meta name="description"
+        content="Explora exemplos de estilos de óculos no catálogo da Óptica Piscar D’Olho.">
+  <meta name="theme-color" content="#111111">
+
+  <style>
+    :root {
+      --preto: #111111;
+      --branco: #ffffff;
+      --dourado: #d4b475;
+      --dourado-escuro: #80602d;
+      --cinza: #626262;
+      --fundo: #f5f5f5;
+      --linha: #e3e3e3;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--fundo);
+      color: var(--preto);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible {
+      outline: 3px solid var(--dourado-escuro);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(1180px, 90%);
+      margin: auto;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid var(--linha);
+    }
+
+    .cabecalho {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 22px 0;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      text-decoration: none;
+      font-family: Georgia, serif;
+      font-size: 26px;
+    }
+
+    .logo small {
+      display: block;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      color: var(--dourado-escuro);
+      letter-spacing: 3px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 14px;
+    }
+
+    nav a {
+      text-decoration: none;
+      text-underline-offset: 5px;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      text-decoration: underline;
+      text-decoration-color: var(--dourado-escuro);
+    }
+
+    .apresentacao {
+      padding: 65px 0;
+      background: var(--preto);
+      color: white;
+    }
+
+    .etiqueta {
+      color: var(--dourado);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, serif;
+      font-weight: normal;
+      line-height: 1.2;
+    }
+
+    h1 {
+      margin: 12px 0 20px;
+      font-size: clamp(36px, 6vw, 60px);
+    }
+
+    .apresentacao p {
+      max-width: 650px;
+      color: #cccccc;
+    }
+
+    main {
+      padding: 35px 0 65px;
+    }
+
+    .aviso {
+      padding: 18px 22px;
+      margin-bottom: 30px;
+      border: 1px solid #d4b475;
+      border-left: 4px solid var(--dourado);
+      background: #fffaf0;
+      font-size: 14px;
+    }
+
+    .controlos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .filtros {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+
+    .filtro {
+      padding: 9px 16px;
+      border: 1px solid #c7c7c7;
+      border-radius: 25px;
+      background: white;
+      color: var(--preto);
+    }
+
+    .filtro[aria-pressed="true"] {
+      background: var(--preto);
+      border-color: var(--preto);
+      color: white;
+    }
+
+    .campo {
+      padding: 11px 14px;
+      border: 1px solid #c7c7c7;
+      border-radius: 4px;
+      background: white;
+      color: var(--preto);
+      max-width: 100%;
+    }
+
+    #pesquisa {
+      width: 320px;
+    }
+
+    .resultado {
+      color: var(--cinza);
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .grelha {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .produto {
+      overflow: hidden;
+      background: white;
+      border: 1px solid var(--linha);
+      border-radius: 5px;
+    }
+
+    .imagem {
+      position: relative;
+      background: #eeeeee;
+    }
+
+    .imagem img {
+      display: block;
+      width: 100%;
+      height: 245px;
+      object-fit: cover;
+    }
+
+    .selo {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      padding: 4px 9px;
+      background: #111111df;
+      color: white;
+      font-size: 10px;
+      border-radius: 3px;
+    }
+
+    .info {
+      padding: 24px;
+    }
+
+    .categoria {
+      color: var(--dourado-escuro);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 10px;
+    }
+
+    h2 {
+      font-size: 25px;
+      margin: 10px 0 12px;
+    }
+
+    .descricao {
+      color: var(--cinza);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .preco {
+      font-size: 25px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .preco-nota {
+      color: var(--cinza);
+      font-size: 11px;
+      margin: 3px 0 20px;
+    }
+
+    .botao {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 17px;
+      min-height: 44px;
+      background: var(--preto);
+      color: white;
+      border: 1px solid var(--preto);
+      border-radius: 3px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .botao:hover {
+      background: #353535;
+    }
+
+    .botao.dourado {
+      background: var(--dourado);
+      border-color: var(--dourado);
+      color: var(--preto);
+    }
+
+    .vazio {
+      padding: 25px;
+      background: white;
+      border: 1px solid var(--linha);
+    }
+
+    .ajuda {
+      margin-top: 45px;
+      padding: 30px;
+      background: var(--preto);
+      color: white;
+    }
+
+    .ajuda h3 {
+      margin: 0 0 15px;
+      font-size: 28px;
+    }
+
+    .ajuda p {
+      color: #cccccc;
+    }
+
+    footer {
+      background: #080808;
+      color: #cccccc;
+      padding: 25px 0;
+      font-size: 12px;
+    }
+
+    .rodape {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 950px) {
+      .grelha {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grelha {
+        grid-template-columns: 1fr;
+      }
+
+      .cabecalho {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .apresentacao {
+        padding: 45px 0;
+      }
+
+      #pesquisa,
+      .controlos label,
+      select {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container cabecalho">
+      <a class="logo" href="index.html">
+        Piscar D’Olho
+        <small>ÓPTICA · LOUSADA</small>
+      </a>
+
+      <nav aria-label="Navegação principal">
+        <a href="index.html">Início</a>
+        <a href="catalogo.html" aria-current="page">Catálogo</a>
+        <a href="index.html#servicos">Serviços</a>
+        <a href="index.html#contactos">Contactos</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="apresentacao">
+    <div class="container">
+      <span class="etiqueta">Explora diferentes estilos</span>
+      <h1>Encontra o teu próximo olhar.</h1>
+      <p>
+        Uma seleção de exemplos para explorares armações e óculos
+        de sol. Usa os filtros para encontrar o estilo que procuras.
+      </p>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="aviso">
+      <strong>Catálogo de demonstração:</strong>
+      os nomes, descrições e preços abaixo são exemplos.
+      As fotografias são ilustrativas e podem repetir-se.
+      Não representam modelos ou disponibilidade confirmados da loja.
+    </div>
+
+    <div class="controlos">
+      <div class="filtros" role="group" aria-label="Filtrar exemplos">
+        <button class="filtro" type="button"
+                data-categoria="todos" aria-pressed="true">
+          Todos
+        </button>
+
+        <button class="filtro" type="button"
+                data-categoria="grau" aria-pressed="false">
+          Óculos de grau
+        </button>
+
+        <button class="filtro" type="button"
+                data-categoria="sol" aria-pressed="false">
+          Óculos de sol
+        </button>
+      </div>
+
+      <label>
+        <span class="sr-only">Pesquisar exemplos</span>
+        <input class="campo" id="pesquisa" type="search"
+               placeholder="Pesquisar estilo ou categoria…">
+      </label>
+
+      <label>
+        <span class="sr-only">Ordenar exemplos</span>
+        <select class="campo" id="ordenacao">
+          <option value="original">Ordem inicial</option>
+          <option value="menor">Menor preço de exemplo</option>
+          <option value="maior">Maior preço de exemplo</option>
+        </select>
+      </label>
+    </div>
+
+    <p class="resultado" id="resultado" role="status" aria-live="polite"></p>
+
+    <div class="grelha" id="grelha"></div>
+
+    <p class="vazio" id="vazio" hidden>
+      Não encontrámos exemplos para essa pesquisa.
+      Experimenta “sol”, “clássico” ou “armação”.
+    </p>
+
+    <div class="ajuda">
+      <h3>Queres conhecer os modelos reais?</h3>
+      <p>
+        Visita a loja ou contacta a equipa para confirmar marcas,
+        modelos, preços e disponibilidade.
+      </p>
+
+      <a class="botao dourado" href="tel:+351255822680">
+        Ligar: 255 822 680
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container rodape">
+      <span>
+        © <span id="ano">2026</span> Óptica Piscar D’Olho
+      </span>
+      <a href="index.html">← Voltar à página inicial</a>
+    </div>
+  </footer>
+
+  <script>
+    "use strict";
+
+    /*
+      EDITAR O CATÁLOGO:
+
+      Cada objeto abaixo corresponde a um cartão.
+
+      Substitui:
+      - nome: pelo nome real do modelo;
+      - preco: pelo preço real, como número;
+      - descricao: pelas informações reais;
+      - imagem: por uma fotografia do produto.
+
+      Exemplo de imagem guardada no GitHub:
+      imagem: "imagens/modelo-01.jpg"
+
+      Quando todos os dados forem reais, atualiza também
+      os avisos de demonstração apresentados na página.
+    */
+
+    const imagemGrau =
+      "https://images.unsplash.com/photo-1574258495973-f010dfbb5371" +
+      "?auto=format&fit=crop&w=800&q=80";
+
+    const imagemSol =
+      "https://images.unsplash.com/photo-1508296695146-257a814070b4" +
+      "?auto=format&fit=crop&w=800&q=80";
+
+    const imagemColecao =
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083" +
+      "?auto=format&fit=crop&w=800&q=80";
+
+    // Estes preços e estilos são apenas exemplos.
+    const produtos = [
+      {
+        nome: "Estilo clássico",
+        categoria: "grau",
+        descricao: "Exemplo de uma categoria de armações para o dia a dia.",
+        preco: 79,
+        imagem: imagemGrau
+      },
+      {
+        nome: "Estilo minimalista",
+        categoria: "grau",
+        descricao: "Exemplo de uma seleção com linhas simples e discretas.",
+        preco: 95,
+        imagem: imagemGrau
+      },
+      {
+        nome: "Estilo marcante",
+        categoria: "grau",
+        descricao: "Exemplo de uma seleção de armações com mais presença.",
+        preco: 119,
+        imagem: imagemGrau
+      },
+      {
+        nome: "Sol clássico",
+        categoria: "sol",
+        descricao: "Exemplo de um estilo de óculos de sol para explorar.",
+        preco: 89,
+        imagem: imagemSol
+      },
+      {
+        nome: "Sol urbano",
+        categoria: "sol",
+        descricao: "Exemplo de uma seleção de óculos de sol de inspiração urbana.",
+        preco: 109,
+        imagem: imagemColecao
+      },
+      {
+        nome: "Sol elegante",
+        categoria: "sol",
+        descricao: "Exemplo de uma seleção de estilos para diferentes ocasiões.",
+        preco: 139,
+        imagem: imagemSol
+      }
+    ];
+
+    const grelha = document.getElementById("grelha");
+    const pesquisa = document.getElementById("pesquisa");
+    const ordenacao = document.getElementById("ordenacao");
+    const filtros = [...document.querySelectorAll(".filtro")];
+
+    let categoriaSelecionada = "todos";
+
+    const moeda = new Intl.NumberFormat("pt-PT", {
+      style: "currency",
+      currency: "EUR"
+    });
+
+    function normalizar(texto) {
+      return texto
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase();
+    }
+
+    function criarCartao(produto) {
+      const artigo = document.createElement("article");
+      artigo.className = "produto";
+
+      const imagemArea = document.createElement("div");
+      imagemArea.className = "imagem";
+
+      const imagem = document.createElement("img");
+      imagem.src = produto.imagem;
+      imagem.alt =
+        "Fotografia ilustrativa da categoria " +
+        (produto.categoria === "grau" ? "óculos de grau" : "óculos de sol");
+      imagem.loading = "lazy";
+
+      const selo = document.createElement("span");
+      selo.className = "selo";
+      selo.textContent = "Imagem ilustrativa";
+
+      imagemArea.append(imagem, selo);
+
+      const info = document.createElement("div");
+      info.className = "info";
+
+      const categoria = document.createElement("span");
+      categoria.className = "categoria";
+      categoria.textContent =
+        produto.categoria === "grau" ? "Óculos de grau" : "Óculos de sol";
+
+      const titulo = document.createElement("h2");
+      titulo.textContent = produto.nome;
+
+      const descricao = document.createElement("p");
+      descricao.className = "descricao";
+      descricao.textContent = produto.descricao;
+
+      const preco = document.createElement("p");
+      preco.className = "preco";
+      preco.textContent = moeda.format(produto.preco);
+
+      const nota = document.createElement("p");
+      nota.className = "preco-nota";
+      nota.textContent = "Preço de demonstração · não é uma oferta da loja";
+
+      const contacto = document.createElement("a");
+      contacto.className = "botao";
+      contacto.textContent = "Perguntar por opções reais";
+
+      contacto.href =
+        "mailto:geral@opticapiscardolho.pt?subject=" +
+        encodeURIComponent("Informações sobre " + produto.nome) +
+        "&body=" +
+        encodeURIComponent(
+          "Olá! Vi o exemplo “" + produto.nome +
+          "” no website e gostaria de conhecer os modelos reais " +
+          "disponíveis, os seus preços e o que está incluído. Obrigado."
+        );
+
+      info.append(categoria, titulo, descricao, preco, nota, contacto);
+      artigo.append(imagemArea, info);
+
+      return artigo;
+    }
+
+    function atualizarCatalogo() {
+      const termo = normalizar(pesquisa.value.trim());
+
+      const visiveis = produtos.filter((produto) => {
+        const correspondeCategoria =
+          categoriaSelecionada === "todos" ||
+          produto.categoria === categoriaSelecionada;
+
+        const textoPesquisa = normalizar(
+          produto.nome + " " +
+          produto.descricao + " " +
+          (produto.categoria === "grau" ? "óculos de grau" : "óculos de sol")
+        );
+
+        return correspondeCategoria && textoPesquisa.includes(termo);
+      });
+
+      if (ordenacao.value === "menor") {
+        visiveis.sort((a, b) => a.preco - b.preco);
+      }
+
+      if (ordenacao.value === "maior") {
+        visiveis.sort((a, b) => b.preco - a.preco);
+      }
+
+      grelha.replaceChildren(...visiveis.map(criarCartao));
+
+      document.getElementById("vazio").hidden = visiveis.length !== 0;
+
+      document.getElementById("resultado").textContent =
+        visiveis.length + " exemplos encontrados";
+    }
+
+    filtros.forEach((botao) => {
+      botao.addEventListener("click", () => {
+        categoriaSelecionada = botao.dataset.categoria;
+
+        filtros.forEach((filtro) => {
+          filtro.setAttribute(
+            "aria-pressed",
+            String(filtro === botao)
+          );
+        });
+
+        atualizarCatalogo();
+      });
+    });
+
+    pesquisa.addEventListener("input", atualizarCatalogo);
+    ordenacao.addEventListener("change", atualizarCatalogo);
+
+    document.getElementById("ano").textContent = new Date().getFullYear();
+
+    atualizarCatalogo();
+  </script>
+</body>
+</html>
