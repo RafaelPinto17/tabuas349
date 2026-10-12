@@ -7,7 +7,7 @@
   <title>Óptica Piscar D’Olho | Lousada</title>
 
   <meta name="description"
-        content="Óptica Piscar D’Olho em Lousada. Óculos graduados, óculos de sol, lentes de contacto e consultas com optometrista.">
+        content="Óptica Piscar D’Olho em Lousada. Óculos graduados, óculos de sol, lentes de contacto, consultas e pedidos por e-mail com levantamento na loja.">
 
   <meta name="theme-color" content="#111111">
 
@@ -29,7 +29,7 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 100px;
+      scroll-padding-top: 110px;
     }
 
     body {
@@ -49,13 +49,22 @@
       color: inherit;
     }
 
-    button {
+    button,
+    input,
+    select,
+    textarea {
       font: inherit;
+    }
+
+    button {
       cursor: pointer;
     }
 
     a:focus-visible,
     button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
     summary:focus-visible {
       outline: 3px solid var(--dourado-escuro);
       outline-offset: 4px;
@@ -80,7 +89,7 @@
     }
 
     h2 {
-      font-size: clamp(32px, 4vw, 48px);
+      font-size: clamp(32px, 4vw, 46px);
       margin: 0 0 20px;
     }
 
@@ -94,7 +103,7 @@
     }
 
     section {
-      padding: 85px 0;
+      padding: 80px 0;
     }
 
     .etiqueta {
@@ -110,8 +119,21 @@
     }
 
     .introducao {
-      max-width: 720px;
+      max-width: 740px;
       margin-bottom: 35px;
+    }
+
+    .nota {
+      margin-top: 15px;
+      color: var(--cinza);
+      font-size: 12px;
+    }
+
+    .acoes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
     }
 
     /* BOTÕES */
@@ -121,7 +143,7 @@
       align-items: center;
       justify-content: center;
       min-height: 46px;
-      padding: 12px 23px;
+      padding: 12px 22px;
       border: 1px solid var(--preto);
       border-radius: 3px;
       background: var(--preto);
@@ -170,13 +192,6 @@
       color: var(--preto);
     }
 
-    .acoes {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 25px;
-    }
-
     /* CABEÇALHO */
 
     .topo {
@@ -210,6 +225,7 @@
 
     .logo {
       text-decoration: none;
+      flex-shrink: 0;
     }
 
     .logo strong {
@@ -230,12 +246,12 @@
     nav {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 18px;
     }
 
     nav a {
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     nav a:hover {
@@ -253,7 +269,7 @@
       color: var(--preto);
     }
 
-    /* APRESENTAÇÃO */
+    /* HERO */
 
     .hero {
       display: grid;
@@ -263,7 +279,7 @@
     }
 
     .hero-texto {
-      padding: 80px 10%;
+      padding: 75px 10%;
       align-self: center;
     }
 
@@ -318,7 +334,7 @@
       flex-wrap: wrap;
       justify-content: space-between;
       gap: 15px;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .faixa span::before {
@@ -335,7 +351,7 @@
       gap: 65px;
     }
 
-    /* APRESENTAÇÃO DO CATÁLOGO */
+    /* CATÁLOGO */
 
     .colecao {
       background: var(--fundo);
@@ -385,13 +401,7 @@
       background: #eeeeee;
     }
 
-    .nota {
-      margin-top: 20px;
-      color: var(--cinza);
-      font-size: 12px;
-    }
-
-    .catalogo-convite {
+    .convite {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -404,11 +414,7 @@
       border-radius: 5px;
     }
 
-    .catalogo-convite h3 {
-      margin-bottom: 10px;
-    }
-
-    .catalogo-convite p {
+    .convite p {
       margin: 0;
       color: #cccccc;
       max-width: 600px;
@@ -461,7 +467,122 @@
       color: var(--cinza);
     }
 
-    /* REDES SOCIAIS */
+    /* ENCOMENDAS */
+
+    .encomendas {
+      background: var(--fundo);
+    }
+
+    .aviso {
+      padding: 18px 22px;
+      margin-bottom: 25px;
+      background: #fffaf0;
+      border-left: 3px solid var(--dourado);
+      font-size: 14px;
+    }
+
+    .encomendas-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 25px;
+      align-items: start;
+    }
+
+    .caixa {
+      padding: 30px;
+      background: white;
+      border: 1px solid var(--linha);
+      border-radius: 5px;
+    }
+
+    .campo {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 11px 13px;
+      border: 1px solid #c7c7c7;
+      border-radius: 3px;
+      background: white;
+      color: var(--preto);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .duas-colunas {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .confirmacao {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .confirmacao input {
+      width: 18px;
+      height: 18px;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    .confirmacao label {
+      margin: 0;
+      font-weight: normal;
+      font-size: 13px;
+    }
+
+    .levantamento {
+      background: var(--preto);
+      color: white;
+    }
+
+    .levantamento h3 {
+      color: var(--dourado);
+    }
+
+    .levantamento p {
+      color: #dddddd;
+    }
+
+    .levantamento .separador {
+      border-color: #444444;
+    }
+
+    #alternativa {
+      margin-top: 25px;
+      padding-top: 25px;
+      border-top: 1px solid var(--linha);
+    }
+
+    #texto-email {
+      min-height: 280px;
+      font-size: 13px;
+    }
+
+    #estado-pedido {
+      margin-top: 15px;
+      font-size: 13px;
+      color: var(--cinza);
+    }
+
+    /* REDES */
 
     .redes {
       background: var(--preto);
@@ -511,7 +632,7 @@
       max-width: 100%;
       margin: auto;
       border: 0;
-      background: var(--branco);
+      background: white;
     }
 
     /* PERGUNTAS */
@@ -552,10 +673,11 @@
       padding: 35px;
       border: 1px solid var(--linha);
       border-radius: 5px;
-      background: var(--branco);
+      background: white;
     }
 
-    .contacto a {
+    .contacto a,
+    .levantamento a {
       overflow-wrap: anywhere;
     }
 
@@ -582,7 +704,7 @@
     }
 
     .separador {
-      margin-top: 28px;
+      margin-top: 25px;
       padding-top: 25px;
       border-top: 1px solid var(--linha);
     }
@@ -612,6 +734,10 @@
       color: var(--dourado);
     }
 
+    [hidden] {
+      display: none !important;
+    }
+
     .sr-only {
       position: absolute;
       width: 1px;
@@ -638,40 +764,11 @@
       top: 10px;
     }
 
-    /* TABLETS */
+    /* TELEMÓVEIS E TABLETS */
 
-    @media (max-width: 950px) {
-      nav {
-        gap: 14px;
-      }
-
-      .hero-texto {
-        padding: 55px 8%;
-      }
-
-      .hero-imagem {
-        min-height: 530px;
-      }
-
-      .categorias {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .sobre-grid {
-        gap: 30px;
-      }
-    }
-
-    /* TELEMÓVEIS */
-
-    @media (max-width: 700px) {
+    @media (max-width: 1050px) {
       .cabecalho {
-        min-height: 75px;
         flex-wrap: wrap;
-      }
-
-      .logo strong {
-        font-size: 24px;
       }
 
       .menu {
@@ -694,14 +791,44 @@
       nav a {
         padding: 9px 0;
       }
+    }
+
+    @media (max-width: 850px) {
+      .sobre-grid,
+      .encomendas-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .hero-texto {
+        padding: 55px 8%;
+      }
+
+      .categorias {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 650px) {
+      .cabecalho {
+        min-height: 75px;
+      }
+
+      .logo strong {
+        font-size: 24px;
+      }
 
       .hero,
-      .sobre-grid,
       .categorias,
       .servicos-grid,
       .redes-grid,
-      .contactos-grid {
+      .contactos-grid,
+      .duas-colunas {
         grid-template-columns: 1fr;
+      }
+
+      .duas-colunas {
+        gap: 0;
       }
 
       .hero-texto {
@@ -721,9 +848,10 @@
         padding: 55px 0;
       }
 
+      .caixa,
       .rede,
       .contacto,
-      .catalogo-convite {
+      .convite {
         padding: 25px;
       }
     }
@@ -753,7 +881,7 @@
 
   <header>
     <div class="container cabecalho">
-      <a class="logo" href="#inicio" aria-label="Piscar D’Olho, início">
+      <a class="logo" href="#inicio">
         <strong>Piscar D’Olho</strong>
         <small>ÓPTICA · LOUSADA</small>
       </a>
@@ -768,6 +896,7 @@
         <a href="catalogo.html">Catálogo</a>
         <a href="#marcas">Marcas</a>
         <a href="#servicos">Serviços</a>
+        <a href="#encomendas">Encomendas</a>
         <a href="#redes">Novidades</a>
         <a href="#contactos">Contactos</a>
       </nav>
@@ -791,8 +920,8 @@
             Explorar catálogo →
           </a>
 
-          <a class="botao claro" href="tel:+351255822680">
-            Pedir uma consulta
+          <a class="botao claro" href="#encomendas">
+            Pedir encomenda
           </a>
         </div>
       </div>
@@ -800,7 +929,7 @@
       <div class="hero-imagem">
         <img
           src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&amp;fit=crop&amp;w=1400&amp;q=85"
-          alt="Óculos de sol numa fotografia de apresentação"
+          alt="Fotografia ilustrativa de óculos de sol"
           fetchpriority="high">
 
         <span class="legenda">Fotografia ilustrativa</span>
@@ -811,7 +940,7 @@
       <div class="container">
         <span>Consultas com optometrista</span>
         <span>Óculos graduados e de sol</span>
-        <span>Lentes de contacto e manutenção</span>
+        <span>Pedidos com levantamento na loja</span>
       </div>
     </div>
 
@@ -836,9 +965,15 @@
             necessidades.
           </p>
 
-          <a class="botao contorno" href="#contactos">
-            Planear a minha visita →
-          </a>
+          <div class="acoes">
+            <a class="botao contorno" href="#contactos">
+              Planear a minha visita →
+            </a>
+
+            <a class="botao" href="tel:+351255822680">
+              Pedir uma consulta
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -850,9 +985,8 @@
           <h2>Óculos e cuidados para o teu dia a dia.</h2>
 
           <p class="cinza">
-            Conhece as nossas categorias ou abre a página de catálogo
-            para explorar a apresentação com imagens, marcas e preços
-            ilustrativos.
+            Conhece as categorias da ótica e abre a página de catálogo
+            para explorar imagens, marcas e preços ilustrativos.
           </p>
         </div>
 
@@ -860,17 +994,15 @@
           <article class="categoria">
             <img
               src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
-              alt="Fotografia ilustrativa de armações de óculos"
+              alt="Fotografia ilustrativa de armação de óculos"
               loading="lazy">
 
             <div class="categoria-info">
               <h3>Óculos graduados</h3>
-
               <p>
-                Armações para diferentes estilos e necessidades.
-                Conhece as opções disponíveis com a equipa.
+                Armações para diferentes estilos.
+                Consulta as opções disponíveis com a equipa.
               </p>
-
               <a href="catalogo.html">Abrir catálogo →</a>
             </div>
           </article>
@@ -883,12 +1015,10 @@
 
             <div class="categoria-info">
               <h3>Óculos de sol</h3>
-
               <p>
-                Explora estilos e conversa com a equipa sobre
-                as características dos modelos disponíveis.
+                Explora estilos e pede informações
+                sobre os modelos disponíveis na loja.
               </p>
-
               <a href="catalogo.html">Abrir catálogo →</a>
             </div>
           </article>
@@ -900,16 +1030,12 @@
                    aria-label="Ilustração de lente e líquido de manutenção">
                 <ellipse cx="55" cy="80" rx="40" ry="18"
                          fill="#ffffff" stroke="#111111" stroke-width="2"/>
-
                 <path d="M15 80 Q55 120 95 80"
                       fill="none" stroke="#111111" stroke-width="2"/>
-
                 <rect x="120" y="30" width="45" height="75" rx="8"
                       fill="#ffffff" stroke="#111111" stroke-width="2"/>
-
                 <rect x="128" y="18" width="29" height="13" rx="3"
                       fill="#111111"/>
-
                 <path d="M132 65 H153 M142 54 V76"
                       stroke="#80602d" stroke-width="3"/>
               </svg>
@@ -917,36 +1043,31 @@
 
             <div class="categoria-info">
               <h3>Lentes de contacto</h3>
-
               <p>
-                Lentes de contacto e líquidos de manutenção.
+                Lentes e líquidos de manutenção.
                 Consulta referências e disponibilidade.
               </p>
-
-              <a href="mailto:geral@opticapiscardolho.pt?subject=Informações%20sobre%20lentes%20de%20contacto">
-                Pedir informações →
-              </a>
+              <a href="#encomendas">Pedir informações →</a>
             </div>
           </article>
         </div>
 
         <p class="nota">
-          Fotografias e ilustração de apresentação.
-          Não representam um inventário confirmado da loja.
+          Fotografias ilustrativas. Não representam
+          modelos ou stock confirmados da loja.
         </p>
 
-        <div class="catalogo-convite">
+        <div class="convite">
           <div>
-            <h3>Explora a página de catálogo.</h3>
+            <h3>Gostaste de um estilo?</h3>
             <p>
-              Vê a apresentação com fotografias, marcas e preços
-              de demonstração. Os modelos e valores reais devem
-              ser confirmados com a loja.
+              Envia um pedido por e-mail. A equipa confirma
+              os modelos reais, os preços e a disponibilidade.
             </p>
           </div>
 
-          <a class="botao dourado" href="catalogo.html">
-            Ver catálogo →
+          <a class="botao dourado" href="#encomendas">
+            Preparar pedido →
           </a>
         </div>
       </div>
@@ -974,7 +1095,7 @@
 
         <div class="acoes">
           <a class="botao contorno" href="catalogo.html">
-            Explorar apresentação do catálogo →
+            Ver catálogo →
           </a>
         </div>
       </div>
@@ -995,8 +1116,8 @@
             <span class="numero">01 / OPTOMETRIA</span>
             <h3>Consultas com optometrista</h3>
             <p>
-              Consultas e cuidados de visão. Liga para conhecer
-              os horários e pedir uma marcação.
+              Consultas e cuidados de visão.
+              Liga para conhecer os horários e pedir uma marcação.
             </p>
           </article>
 
@@ -1004,8 +1125,8 @@
             <span class="numero">02 / ÓCULOS DE GRAU</span>
             <h3>Armações para o teu dia a dia</h3>
             <p>
-              Conversa com a equipa sobre o teu estilo e
-              as opções para as tuas necessidades visuais.
+              Conversa com a equipa sobre o teu estilo
+              e as tuas necessidades visuais.
             </p>
           </article>
 
@@ -1013,7 +1134,7 @@
             <span class="numero">03 / ÓCULOS DE SOL</span>
             <h3>Escolhas para o exterior</h3>
             <p>
-              Conhece os modelos disponíveis na loja e pede informações
+              Conhece os modelos e pede informações
               sobre as características das lentes e armações.
             </p>
           </article>
@@ -1023,9 +1144,202 @@
             <h3>Lentes e manutenção</h3>
             <p>
               Lentes de contacto e líquidos de manutenção.
-              Consulta as referências e disponibilidade com a equipa.
+              Consulta referências e disponibilidade com a equipa.
             </p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="encomendas" id="encomendas">
+      <div class="container">
+        <div class="introducao">
+          <p class="etiqueta">Pedido por e-mail</p>
+          <h2>Encomenda com levantamento na loja.</h2>
+          <p class="cinza">
+            Indica o que procuras. A equipa confirma o modelo,
+            o preço, a disponibilidade e a data de levantamento.
+          </p>
+        </div>
+
+        <div class="aviso">
+          <strong>O catálogo atual é ilustrativo.</strong>
+          As fotografias e preços de exemplo não constituem ofertas da loja.
+          Este pedido depende de confirmação e não inclui pagamento online.
+        </div>
+
+        <div class="encomendas-grid">
+          <div class="caixa">
+            <h3>Preparar o meu pedido</h3>
+
+            <form id="formulario-pedido">
+              <div class="campo">
+                <label for="nome">Nome *</label>
+                <input id="nome" name="nome" autocomplete="name"
+                       maxlength="100" required>
+              </div>
+
+              <div class="duas-colunas">
+                <div class="campo">
+                  <label for="email">E-mail *</label>
+                  <input id="email" name="email" type="email"
+                         autocomplete="email" maxlength="150" required>
+                </div>
+
+                <div class="campo">
+                  <label for="telefone">Telefone — opcional</label>
+                  <input id="telefone" name="telefone" type="tel"
+                         autocomplete="tel" maxlength="30">
+                </div>
+              </div>
+
+              <div class="duas-colunas">
+                <div class="campo">
+                  <label for="marca">Marca</label>
+                  <select id="marca" name="marca">
+                    <option value="A confirmar">Não sei / a confirmar</option>
+                    <option>IZIPIZI</option>
+                    <option>Bolon Eyewear</option>
+                    <option>Eyepetizer</option>
+                    <option>Ray-Ban Junior</option>
+                    <option>Lozza</option>
+                    <option>Twinset</option>
+                    <option>Furla</option>
+                    <option>Outra</option>
+                  </select>
+                </div>
+
+                <div class="campo">
+                  <label for="quantidade">Quantidade *</label>
+                  <input id="quantidade" name="quantidade" type="number"
+                         min="1" max="20" step="1" value="1" required>
+                </div>
+              </div>
+
+              <div class="campo">
+                <label for="modelo">Modelo ou descrição do produto *</label>
+                <input id="modelo" name="modelo" maxlength="200"
+                       placeholder="Referência, cor, estilo ou produto pretendido"
+                       required>
+              </div>
+
+              <div class="campo">
+                <label for="publicacao">
+                  Link do produto ou publicação — opcional
+                </label>
+                <input id="publicacao" name="publicacao" type="url"
+                       maxlength="500" placeholder="https://...">
+                <p class="nota">
+                  Podes indicar uma publicação do Instagram ou Facebook.
+                </p>
+              </div>
+
+              <div class="campo">
+                <label for="observacoes">Observações — opcional</label>
+                <textarea id="observacoes" name="observacoes"
+                          maxlength="800"
+                          placeholder="Indica cor, tamanho ou outros detalhes."></textarea>
+                <p class="nota">
+                  Não incluas receitas ou informações clínicas.
+                </p>
+              </div>
+
+              <div class="confirmacao">
+                <input id="confirmar-pedido" type="checkbox" required>
+                <label for="confirmar-pedido">
+                  Compreendo que o pedido depende da confirmação da loja
+                  e que o levantamento será combinado após essa confirmação.
+                </label>
+              </div>
+
+              <button class="botao dourado" type="submit">
+                Preparar e-mail →
+              </button>
+
+              <p class="nota">
+                Abre a tua aplicação de e-mail com o pedido preenchido.
+                Revê a mensagem e carrega em enviar.
+                O site não envia o e-mail automaticamente.
+              </p>
+            </form>
+
+            <div id="alternativa" hidden>
+              <h3>O teu pedido está preparado</h3>
+
+              <p class="nota">
+                Se a aplicação de e-mail não abrir, copia o texto
+                e envia-o para
+                <a href="mailto:geral@opticapiscardolho.pt">
+                  geral@opticapiscardolho.pt
+                </a>.
+              </p>
+
+              <label for="texto-email">Texto do pedido</label>
+              <textarea id="texto-email" readonly></textarea>
+
+              <div class="acoes">
+                <a class="botao" id="abrir-email" href="#">
+                  Abrir aplicação de e-mail
+                </a>
+
+                <button class="botao contorno" id="copiar-pedido"
+                        type="button">
+                  Copiar texto
+                </button>
+              </div>
+
+              <p id="estado-pedido" role="status" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <aside class="caixa levantamento">
+            <h3>Levantamento na loja</h3>
+
+            <address>
+              Óptica Piscar D’Olho<br>
+              Rua do Tojeiro, nº 549, R/C Esq<br>
+              4620-668 Lousada
+            </address>
+
+            <div class="separador">
+              <p>
+                <strong>Como funciona?</strong>
+              </p>
+
+              <ol>
+                <li>Preenche os dados do pedido.</li>
+                <li>Envia o e-mail preparado.</li>
+                <li>Aguarda a confirmação da equipa.</li>
+                <li>Combina o levantamento na loja.</li>
+              </ol>
+            </div>
+
+            <div class="separador">
+              <p>
+                <strong>Horário indicado</strong><br>
+                Segunda a sábado: 09:00–19:00<br>
+                Domingo: encerrado
+              </p>
+
+              <p>
+                Aguarda a confirmação antes de te deslocares
+                para levantar o pedido.
+              </p>
+            </div>
+
+            <div class="separador">
+              <p>
+                <strong>Precisas de ajuda?</strong><br>
+                <a href="tel:+351255822680">255 822 680</a>
+              </p>
+
+              <p>
+                <a href="mailto:geral@opticapiscardolho.pt">
+                  geral@opticapiscardolho.pt
+                </a>
+              </p>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -1035,10 +1349,8 @@
         <div class="introducao">
           <p class="etiqueta">Instagram e Facebook</p>
           <h2>Acompanha as novidades da loja.</h2>
-
           <p class="cinza">
-            Descobre as fotografias, modelos e coleções partilhadas
-            nas páginas da Óptica Piscar D’Olho.
+            Descobre as publicações e fotografias partilhadas pela ótica.
           </p>
         </div>
 
@@ -1046,9 +1358,8 @@
           <article class="rede">
             <h3>Instagram</h3>
             <p><strong>@opticapiscardolho</strong></p>
-
             <p>
-              Abre o perfil para explorar as publicações reais da ótica.
+              Explora as publicações reais da ótica.
               O Instagram poderá pedir que inicies sessão.
             </p>
 
@@ -1062,10 +1373,8 @@
           <article class="rede">
             <h3>Facebook</h3>
             <p>Óptica Piscar D’Olho</p>
-
             <p>
-              Visita a página ou tenta carregar as publicações
-              diretamente nesta área.
+              Visita a página ou tenta carregar as publicações nesta área.
             </p>
 
             <a class="botao dourado"
@@ -1092,8 +1401,44 @@
 
     <section id="perguntas">
       <div class="container">
-        <p class="etiqueta">Antes de nos visitares</p>
+        <p class="etiqueta">Informações úteis</p>
         <h2>Perguntas frequentes.</h2>
+
+        <details>
+          <summary>Como posso fazer um pedido?</summary>
+          <p>
+            Preenche a secção de <a href="#encomendas">encomendas</a>.
+            O botão prepara um e-mail que deves enviar à ótica.
+            A equipa confirma os detalhes por contacto direto.
+          </p>
+        </details>
+
+        <details>
+          <summary>O pedido fica confirmado ao preencher o formulário?</summary>
+          <p>
+            Não. É necessário enviar o e-mail e aguardar a confirmação
+            da loja sobre o modelo, preço, disponibilidade e levantamento.
+          </p>
+        </details>
+
+        <details>
+          <summary>Posso pagar online?</summary>
+          <p>
+            Esta versão não tem pagamento online.
+            As condições de pagamento são combinadas com a equipa
+            durante a confirmação do pedido.
+          </p>
+        </details>
+
+        <details>
+          <summary>Os preços do catálogo são reais?</summary>
+          <p>
+            O catálogo atual é meramente ilustrativo.
+            As fotografias não correspondem aos modelos das marcas
+            indicadas e os preços são fictícios.
+            Contacta a loja para conhecer os valores reais.
+          </p>
+        </details>
 
         <details>
           <summary>Como posso marcar uma consulta?</summary>
@@ -1103,54 +1448,7 @@
             <a href="mailto:geral@opticapiscardolho.pt">
               geral@opticapiscardolho.pt
             </a>.
-            A equipa confirma os horários disponíveis. O pedido
-            por e-mail não confirma automaticamente a marcação.
-          </p>
-        </details>
-
-        <details>
-          <summary>Os preços do catálogo são os preços da loja?</summary>
-          <p>
-            Nesta versão, o
-            <a href="catalogo.html">catálogo</a>
-            é meramente ilustrativo: as fotografias não correspondem
-            a modelos das marcas indicadas e os preços são fictícios.
-            Contacta a loja para conhecer os modelos, preços
-            e disponibilidade reais.
-          </p>
-        </details>
-
-        <details>
-          <summary>Onde posso acompanhar as novidades?</summary>
-          <p>
-            Visita o
-            <a href="https://www.instagram.com/opticapiscardolho/"
-               target="_blank" rel="noopener noreferrer">
-              Instagram
-            </a>
-            e o
-            <a href="https://www.facebook.com/piscardolho/"
-               target="_blank" rel="noopener noreferrer">
-              Facebook
-            </a>
-            da ótica para conhecer as publicações partilhadas pela loja.
-          </p>
-        </details>
-
-        <details>
-          <summary>Vendem lentes de contacto?</summary>
-          <p>
-            Sim. A oferta indicada inclui lentes de contacto e líquidos
-            de manutenção. Consulta os produtos disponíveis com a equipa.
-          </p>
-        </details>
-
-        <details>
-          <summary>Estão abertos ao sábado?</summary>
-          <p>
-            O horário indicado é de segunda a sábado, das 09:00 às 19:00.
-            Ao domingo, a loja está encerrada. Confirma alterações
-            em feriados antes de te deslocares.
+            A equipa confirma os horários disponíveis.
           </p>
         </details>
       </div>
@@ -1160,7 +1458,7 @@
       <div class="container">
         <div class="introducao">
           <p class="etiqueta">Visita-nos em Lousada</p>
-          <h2>O próximo passo é uma visita.</h2>
+          <h2>Estamos à tua espera.</h2>
         </div>
 
         <div class="contactos-grid">
@@ -1179,7 +1477,7 @@
             <a class="botao contorno"
                href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20do%20Tojeiro%20549%204620-668%20Lousada"
                target="_blank" rel="noopener noreferrer">
-              Ver localização no mapa ↗
+              Abrir localização no mapa ↗
             </a>
 
             <div class="separador">
@@ -1197,7 +1495,9 @@
                 </a>
               </p>
 
-              <p class="nota">Chamada para a rede fixa nacional.</p>
+              <p class="nota">
+                Chamada para a rede fixa nacional.
+              </p>
             </div>
           </div>
 
@@ -1223,25 +1523,19 @@
             </table>
 
             <p class="nota">
-              Confirma eventuais alterações em feriados e os horários
-              específicos das consultas.
+              Confirma alterações em feriados e os horários das consultas.
             </p>
 
             <div class="separador">
-              <h3>Queres pedir uma consulta?</h3>
-
-              <p class="cinza">
-                Contacta-nos para informações e disponibilidade.
-              </p>
+              <h3>Como podemos ajudar?</h3>
 
               <div class="acoes">
                 <a class="botao" href="tel:+351255822680">
                   Ligar à ótica
                 </a>
 
-                <a class="botao contorno"
-                   href="mailto:geral@opticapiscardolho.pt?subject=Pedido%20de%20marcação%20de%20consulta">
-                  Pedir por e-mail
+                <a class="botao dourado" href="#encomendas">
+                  Pedir encomenda
                 </a>
               </div>
             </div>
@@ -1259,6 +1553,7 @@
 
       <div>
         <a href="catalogo.html">Catálogo</a>
+        <a href="#encomendas">Encomendas</a>
 
         <a href="https://www.instagram.com/opticapiscardolho/"
            target="_blank" rel="noopener noreferrer">
@@ -1281,7 +1576,7 @@
     document.getElementById("ano").textContent =
       new Date().getFullYear();
 
-    // Menu para telemóveis.
+    // MENU
     const menu = document.getElementById("menu");
     const navegacao = document.getElementById("navegacao");
 
@@ -1299,9 +1594,7 @@
     });
 
     navegacao.addEventListener("click", (evento) => {
-      if (evento.target.closest("a")) {
-        fecharMenu();
-      }
+      if (evento.target.closest("a")) fecharMenu();
     });
 
     document.addEventListener("keydown", (evento) => {
@@ -1314,7 +1607,105 @@
       }
     });
 
-    // Facebook: carrega apenas após um clique.
+    // PEDIDOS POR E-MAIL
+    const formulario =
+      document.getElementById("formulario-pedido");
+
+    const textoEmail =
+      document.getElementById("texto-email");
+
+    const estadoPedido =
+      document.getElementById("estado-pedido");
+
+    function valor(id) {
+      return document.getElementById(id).value.trim();
+    }
+
+    formulario.addEventListener("submit", (evento) => {
+      evento.preventDefault();
+
+      for (const id of ["nome", "modelo"]) {
+        const campo = document.getElementById(id);
+
+        campo.setCustomValidity(
+          campo.value.trim() ? "" : "Preenche este campo."
+        );
+      }
+
+      if (!formulario.reportValidity()) return;
+
+      const assunto =
+        "Pedido com levantamento em loja — " + valor("marca");
+
+      const mensagem = [
+        "Olá, Óptica Piscar D’Olho!",
+        "",
+        "Gostaria de solicitar informações e confirmação para este pedido:",
+        "",
+        "Nome: " + valor("nome"),
+        "E-mail: " + valor("email"),
+        "Telefone: " + (valor("telefone") || "Não indicado"),
+        "",
+        "Marca: " + valor("marca"),
+        "Modelo / descrição: " + valor("modelo"),
+        "Quantidade: " + valor("quantidade"),
+        "Link de referência: " +
+          (valor("publicacao") || "Não indicado"),
+        "Observações: " +
+          (valor("observacoes") || "Sem observações"),
+        "",
+        "Forma de receção: levantamento na loja de Lousada.",
+        "",
+        "Por favor, confirmem o modelo, a disponibilidade,",
+        "o preço total, o que está incluído, as condições",
+        "de pagamento e a data de levantamento.",
+        "",
+        "Compreendo que o catálogo é ilustrativo",
+        "e que este pedido depende da confirmação da loja.",
+        "",
+        "Obrigado."
+      ].join("\n");
+
+      const endereco =
+        "mailto:geral@opticapiscardolho.pt" +
+        "?subject=" + encodeURIComponent(assunto) +
+        "&body=" + encodeURIComponent(mensagem);
+
+      textoEmail.value = mensagem;
+
+      document.getElementById("abrir-email").href = endereco;
+      document.getElementById("alternativa").hidden = false;
+
+      estadoPedido.textContent =
+        "Pedido preparado. Ainda precisas de enviar o e-mail.";
+
+      window.location.href = endereco;
+    });
+
+    ["nome", "modelo"].forEach((id) => {
+      document.getElementById(id)
+        .addEventListener("input", (evento) => {
+          evento.target.setCustomValidity("");
+        });
+    });
+
+    document.getElementById("copiar-pedido")
+      .addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(textoEmail.value);
+
+          estadoPedido.textContent =
+            "Texto copiado. Cola-o num e-mail e envia para a ótica.";
+        } catch {
+          textoEmail.focus();
+          textoEmail.select();
+
+          estadoPedido.textContent =
+            "Texto selecionado. Usa a opção Copiar do teu dispositivo.";
+        }
+      });
+
+    // FACEBOOK
     document.getElementById("carregar-facebook")
       .addEventListener("click", () => {
         const area = document.getElementById("facebook-area");
@@ -1343,8 +1734,8 @@
 
         aviso.textContent =
           "Se as publicações não aparecerem, usa o botão " +
-          "“Abrir Facebook”. A incorporação pode ser bloqueada " +
-          "pelo Facebook ou pelo navegador.";
+          "“Abrir Facebook”. A incorporação pode ser " +
+          "bloqueada pelo Facebook ou pelo navegador.";
 
         area.replaceChildren(iframe, aviso);
       });
